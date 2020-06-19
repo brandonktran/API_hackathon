@@ -10,7 +10,7 @@
 <body>
     <h1>This is my app</h1>
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script>
         $.ajax({
 
@@ -20,7 +20,7 @@
             data: {
                 client_id: '6dd155c877944b318a20eb860b123d53',
                 response_type: 'token',
-                redirect_uri: 'http://127.0.0.1:5500/index.html'
+                redirect_uri: 'http://127.0.0.1:5500/'
             },
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer $token")
