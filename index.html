@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>This is my app</h1>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+    <script>
+        $.ajax({
+
+            // The URL to process the request
+            url: 'https://accounts.spotify.com/authorize',
+            type: 'GET',
+            data: {
+                client_id: '6dd155c877944b318a20eb860b123d53',
+                response_type: 'token',
+                redirect_uri: 'http://127.0.0.1:5500/index.html'
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer $token")
+            },
+            dataType: "json",
+            success: function (response) {
+                //console.log(response);
+                console.log(response.access_token);
+                data.access_token = response.access_token;
+                tokenGranted();
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>
