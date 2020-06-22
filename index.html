@@ -12,16 +12,16 @@
   <div>
     <h1>This is my app</h1>
     <div class="dropdown">
-      <button onclick="myFunction()" class="dropbtn">Dropdown</button>
       <div id="myDropdown" class="dropdown-content">
-        <input type="text" id="searchInput" placeholder="Search for a player.." onkeyup="filterFunction()">
-        <button id='search'>Search</button>
-        <ul id="myUL">
+        <input type="text" id="searchInput" placeholder="Search for a player.." onclick="myFunction()">
+        <button id="search">Search</button>
+        <ul id="myUL" class="noshow">
           <li><a href="#">random</a></li>
         </ul>
       </div>
     </div>
   </div>
+
   <br>
   <div class="container">
     <div class="row">
@@ -90,10 +90,16 @@
     </div>
     <div class="row">
       <div class="col chart-container" style="height:300px;">
+        <label for="cars">Choose a stat:</label>
+        <select name="stats" id="stats" onchange="updateLineChart()">
+          <option value="pts">Points</option>
+          <option value="ast">Assists</option>
+          <option value="reb">Rebounds</option>
+          <option value="blk">Blocks</option>
+          <option value="stl">Steals</option>
+        </select>
+        <br><br>
         <canvas id="line1" style="height:300px; width:500px"></canvas>
-      </div>
-      <div class="col chart-container" style="height:300px;">
-        <canvas id="line2" style="height:300px; width:500px"></canvas>
       </div>
     </div>
   </div>

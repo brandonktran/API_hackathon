@@ -161,3 +161,7 @@
     flex-basis: 30%;
     margin-right: 1%;
 }
+
+.noshow {
+  display: none;
+}
