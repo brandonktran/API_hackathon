@@ -5,7 +5,7 @@ const barData = {
     labels: ['FGM', 'FG3M', 'FTM'],
     datasets: [
       {
-        label: "Red",
+        label: "Stephen Curry",
         fillColor: "red",
         data: [],
         backgroundColor: 'rgb(62, 149, 205, 0.4)',
@@ -14,7 +14,7 @@ const barData = {
         hoverBackgroundColor: 'rgb(62, 149, 205, 0.8)'
       },
       {
-        label: "Blue",
+        label: "Lebron James",
         fillColor: "blue",
         data: [],
         backgroundColor: 'rgb(142, 94, 162, 0.4)',
@@ -29,7 +29,7 @@ const barData = {
       duration: 1500,
       easing: 'easeInQuad'
     },
-    legend: { display: false },
+    legend: { display: true },
     title: {
       display: true,
       text: 'Field Goals Made Per Game'
@@ -53,7 +53,7 @@ const bar2Data = {
     labels: ['FGA', 'FG3A', 'FTA'],
     datasets: [
       {
-        label: "Red",
+        label: "Stephen Curry",
         fillColor: "red",
         data: [],
         backgroundColor: 'rgb(60, 186, 159, 0.4)',
@@ -62,7 +62,7 @@ const bar2Data = {
         hoverBackgroundColor: 'rgb(60, 186, 159, 0.8)'
       },
       {
-        label: "Blue",
+        label: "Lebron James",
         fillColor: "blue",
         data: [],
         backgroundColor: 'rgb(232, 195, 185, 0.6)',
@@ -77,7 +77,7 @@ const bar2Data = {
       duration: 1500,
       easing: 'easeInQuad'
     },
-    legend: { display: false },
+    legend: { display: true },
     title: {
       display: true,
       text: 'Field Goal Attempts Per Game'
@@ -101,7 +101,7 @@ const bar3Data = {
     labels: ['FG%', 'FG3%', 'FT%'],
     datasets: [
       {
-        label: "Red",
+        label: "Stephen Curry",
         fillColor: "red",
         data: [],
         backgroundColor: 'rgb(196, 88, 80, 0.4)',
@@ -110,7 +110,7 @@ const bar3Data = {
         hoverBackgroundColor: 'rgb(196, 88, 80, 0.8)'
       },
       {
-        label: "Blue",
+        label: "Lebron James",
         fillColor: "blue",
         data: [],
         backgroundColor: 'rgb(232, 195, 185, 0.6)',
@@ -125,7 +125,7 @@ const bar3Data = {
       duration: 1500,
       easing: 'easeInQuad'
     },
-    legend: { display: false },
+    legend: { display: true },
     title: {
       display: true,
       text: 'Field Goal Percentage %'
@@ -148,7 +148,7 @@ const radarData = {
   data: {
     labels: ["PPG", "RPG", "BPG", "SPG", "APG"],
     datasets: [{
-      label: "Student A",
+      label: "Stephen Curry",
       backgroundColor: "rgba(200,0,0,0.2)",
       data: [],
       pointHoverRadius: 10,
@@ -157,7 +157,7 @@ const radarData = {
     }
       ,
     {
-      label: "Student B",
+      label: "Lebron James",
       backgroundColor: "rgba(0,0,200,0.2)",
       data: [],
       pointHoverRadius: 10,
@@ -177,6 +177,32 @@ const radarData = {
         // min: 0,
         // stepSize: 1
       }
+    }
+  }
+}
+
+const line1CTX = document.getElementById('line1').getContext('2d');
+const line1data = {
+  type: 'line',
+  data: {
+    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    datasets: [{
+      data: [],
+      label: "Stephen Curry",
+      borderColor: "#3e95cd",
+      fill: false
+    }, {
+      data: [],
+      label: "Lebron James",
+      borderColor: "#8e5ea2",
+      fill: false
+    }
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Last 10 Games'
     }
   }
 }
