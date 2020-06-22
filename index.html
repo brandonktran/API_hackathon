@@ -2,40 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Basketball</title>
 </head>
 
 <body>
-    <h1>This is my app</h1>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script>
-        $.ajax({
-
-            // The URL to process the request
-            url: 'https://accounts.spotify.com/authorize',
-            type: 'GET',
-            data: {
-                client_id: '6dd155c877944b318a20eb860b123d53',
-                response_type: 'token',
-                redirect_uri: 'https://brandonktran.github.io/API_hackathon//'
-            },
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("Authorization", "Bearer $token")
-            },
-            dataType: "json",
-            success: function (response) {
-                //console.log(response);
-                console.log(response.access_token);
-                data.access_token = response.access_token;
-                tokenGranted();
-            }
-
-        });
-
-    </script>
+  <h1>This is my app</h1>
+  <div class="chart-container" style="height:200px; width:50vw">
+    <canvas id="bar1" style="height:200px; width:50vw"></canvas>
+  </div>
+  <br>
+  <div class="chart-container" style="height:200px; width:50vw">
+    <canvas id="bar2" style="height:200px; width:50vw"></canvas>
+  </div>
+  <br>
+  <div class="chart-container" style="height:200px; width:50vw">
+    <canvas id="bar3" style="height:200px; width:50vw"></canvas>
+  </div>
+  <br>
+  <div class="chart-container" style="height:200px; width:50vw">
+    <canvas id="radar" style="height:200px; width:50vw"></canvas>
+  </div>
+  <script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script src='chartParameters.js'></script>
+  <script src='main.js'></script>
 </body>
 
 </html>
