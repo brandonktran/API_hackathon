@@ -26,6 +26,14 @@ const statArray = {
   'SEASON': 'season'
 }
 const lastSeason = 19;
+const position1 = document.getElementById('position1');
+const team1 = document.getElementById('team1');
+const height1 = document.getElementById('height1');
+const weight1 = document.getElementById('weight1');
+const position2 = document.getElementById('position2');
+const team2 = document.getElementById('team2');
+const height2 = document.getElementById('height2');
+const weight2 = document.getElementById('weight2');
 const dropdown = document.getElementById('myUL');
 const search = document.getElementById('search');
 const changeOne = document.getElementById('changePlayer1');
@@ -112,13 +120,23 @@ function findPlayer() {
       for (let i = 0; i < data.data.length; i++) {
         const item = document.createElement('li');
         const button = document.createElement('button');
+        const playerProf = data.data[i];
         button.id = data.data[i].id;
         button.textContent = data.data[i].first_name + ' ' + data.data[i].last_name;
         button.addEventListener('click', function (event) {
           if (currentPlayer === 0) {
+            // data.data.height_feet height_inches position team.full_name weight_pounds
             player1ID = event.currentTarget.id;
+            weight1.textContent = playerProf.weight_pounds;
+            height1.textContent = playerProf.height_feet + 'feet' + ' ' + playerProf.height_inches + ' inches';
+            team1.textContent = playerProf.team.full_name;
+            position1.textContent = playerProf.position;
           } else if (currentPlayer === 1) {
             player2ID = event.currentTarget.id;
+            weight2.textContent = playerProf.weight_pounds;
+            height2.textContent = playerProf.height_feet + 'feet' + ' ' + playerProf.height_inches + ' inches';
+            team2.textContent = playerProf.team.full_name;
+            position2.textContent = playerProf.position;
           }
           getPlayerStats(event.currentTarget, currentPlayer);
           const id = event.currentTarget.id;
@@ -151,10 +169,10 @@ function getPlayerStats(player, playerNum) {
       console.log(data.data[0].season);
       console.log(player)
       const [firstName, lastName] = player.textContent.split(' ');
-      barData.data.datasets[playerNum].label = player.textContent;
-      bar2Data.data.datasets[playerNum].label = player.textContent;
-      bar3Data.data.datasets[playerNum].label = player.textContent;
-      radarData.data.datasets[playerNum].label = player.textContent;
+      barData.data.datasets[playerNum].label = data.data[0].season + ' ' + player.textContent;
+      bar2Data.data.datasets[playerNum].label = data.data[0].season + ' ' + player.textContent;
+      bar3Data.data.datasets[playerNum].label = data.data[0].season + ' ' + player.textContent;
+      radarData.data.datasets[playerNum].label = data.data[0].season + ' ' + player.textContent;
       line1data.data.datasets[playerNum].label = player.textContent;
       barChart.update();
       bar2Chart.update();
@@ -358,17 +376,19 @@ createSeasonDropdown()
 // });
 
 
-// $.ajax({
-//   url: 'https://www.balldontlie.io/api/v1/players',
-//   type: 'GET',
-//   data: {
-//     'search': 'lebron james',
-//     'per_page': 100
-//   },
-//   success: function (data) {
-//     console.log(data);
-//   },
-//   error: function (error) {
-//     console.log(error);
-//   }
-// });
+$.ajax({
+  url: 'https://www.balldontlie.io/api/v1/players',
+  type: 'GET',
+  data: {
+    'search': 'lebron james',
+    'per_page': 100
+  },
+  success: function (data) {
+    console.log(data);
+  },
+  error: function (error) {
+    console.log(error);
+  }
+});
+
+// data.data.height_feet height_inches position team.full_name weight_pounds

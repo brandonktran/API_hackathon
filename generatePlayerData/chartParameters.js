@@ -1,3 +1,4 @@
+const currSeason = 2019
 Chart.defaults.global.defaultFontColor = 'black';
 const barCTX = document.getElementById('bar1').getContext('2d');
 const barData = {
@@ -6,7 +7,7 @@ const barData = {
     labels: ['FGM', 'FG3M', 'FTM'],
     datasets: [
       {
-        label: "Stephen Curry",
+        label: currSeason + ' ' + "Stephen Curry",
         fillColor: "red",
         data: [],
         backgroundColor: 'rgb(62, 149, 205, 0.4)',
@@ -15,7 +16,7 @@ const barData = {
         hoverBackgroundColor: 'rgb(62, 149, 205, 0.8)'
       },
       {
-        label: "Lebron James",
+        label: currSeason + ' ' + "Lebron James",
         fillColor: "blue",
         data: [],
         backgroundColor: 'rgb(142, 94, 162, 0.4)',
@@ -60,7 +61,7 @@ const bar2Data = {
     labels: ['FGA', 'FG3A', 'FTA'],
     datasets: [
       {
-        label: "Stephen Curry",
+        label: currSeason + ' ' + "Stephen Curry",
         fillColor: "red",
         data: [],
         backgroundColor: 'rgb(60, 186, 159, 0.4)',
@@ -69,7 +70,7 @@ const bar2Data = {
         hoverBackgroundColor: 'rgb(60, 186, 159, 0.8)'
       },
       {
-        label: "Lebron James",
+        label: currSeason + ' ' + "Lebron James",
         fillColor: "blue",
         data: [],
         backgroundColor: 'rgb(232, 195, 185, 0.6)',
@@ -108,7 +109,7 @@ const bar3Data = {
     labels: ['FG%', 'FG3%', 'FT%'],
     datasets: [
       {
-        label: "Stephen Curry",
+        label: currSeason + ' ' + "Stephen Curry",
         fillColor: "red",
         data: [],
         backgroundColor: 'rgb(196, 88, 80, 0.4)',
@@ -117,7 +118,7 @@ const bar3Data = {
         hoverBackgroundColor: 'rgb(196, 88, 80, 0.8)'
       },
       {
-        label: "Lebron James",
+        label: currSeason + ' ' + "Lebron James",
         fillColor: "blue",
         data: [],
         backgroundColor: 'rgb(232, 195, 185, 0.6)',
@@ -155,7 +156,7 @@ const radarData = {
   data: {
     labels: ["PPG", "RPG", "BPG", "SPG", "APG"],
     datasets: [{
-      label: "Stephen Curry",
+      label: currSeason + ' ' + "Stephen Curry",
       backgroundColor: "rgba(200,0,0,0.2)",
       data: [],
       pointHoverRadius: 10,
@@ -164,7 +165,7 @@ const radarData = {
     }
       ,
     {
-      label: "Lebron James",
+      label: currSeason + ' ' + "Lebron James",
       backgroundColor: "rgba(0,0,200,0.2)",
       data: [],
       pointHoverRadius: 10,
