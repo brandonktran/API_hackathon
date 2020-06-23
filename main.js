@@ -7,8 +7,13 @@ let response;
 let response2;
 let player1ID = 115;
 let player2ID = 237;
+let currentPlayer = 0;
 const dropdown = document.getElementById('myUL');
 const search = document.getElementById('search');
+const changeOne = document.getElementById('changePlayer1');
+changeOne.addEventListener('click', changePlayer);
+const changeTwo = document.getElementById('changePlayer2');
+changeTwo.addEventListener('click', changePlayer);
 search.addEventListener('click', findPlayer)
 
 
@@ -93,29 +98,34 @@ function findPlayer() {
         button.id = data.data[i].id;
         button.textContent = data.data[i].first_name + ' ' + data.data[i].last_name;
         button.addEventListener('click', function (event) {
-          getPlayerStats(event.currentTarget);
+          if (currentPlayer === 0) {
+            player1ID = event.currentTarget.id;
+          } else if (currentPlayer === 1) {
+            player2ID = event.currentTarget.id;
+          }
+          getPlayerStats(event.currentTarget, currentPlayer);
           const id = event.currentTarget.id;
-          $.ajax({
-            url: "https://www.balldontlie.io/api/v1/stats",
-            type: 'GET',
-            data: {
-              'player_ids': [id],
-              'per_page': 10
-            },
-            success: function (data) {
-              const total_pages = data.meta.total_pages;
-              console.log(total_pages, id)
-              getPlayerGameStats(total_pages, id, 0);
-            },
-            error: function (error) {
-              console.log(error);
-            }
-          });
+          updateLineChart()
+          // $.ajax({
+          //   url: "https://www.balldontlie.io/api/v1/stats",
+          //   type: 'GET',
+          //   data: {
+          //     'player_ids': [id],
+          //     'per_page': 10
+          //   },
+          //   success: function (data) {
+          //     const total_pages = data.meta.total_pages;
+          //     console.log(total_pages, id)
+          //     getPlayerGameStats(total_pages, id, 0);
+          //   },
+          //   error: function (error) {
+          //     console.log(error);
+          //   }
+          // });
         })
         item.append(button);
         dropdown.append(item);
       }
-      player1ID = response.data[0].id;
       console.log(data);
     },
     error: function (error) {
@@ -126,7 +136,7 @@ function findPlayer() {
 }
 
 
-function getPlayerStats(player) {
+function getPlayerStats(player, playerNum) {
   document.getElementById("myUL").innerHTML = '';
   document.getElementById("myUL").className = "noshow";
   $.ajax({
@@ -140,32 +150,32 @@ function getPlayerStats(player) {
       response2 = data;
       console.log(player)
       const [firstName, lastName] = player.textContent.split(' ');
-      barData.data.datasets[0].label = player.textContent;
-      bar2Data.data.datasets[0].label = player.textContent;
-      bar3Data.data.datasets[0].label = player.textContent;
-      radarData.data.datasets[0].label = player.textContent;
-      line1data.data.datasets[0].label = player.textContent;
+      barData.data.datasets[playerNum].label = player.textContent;
+      bar2Data.data.datasets[playerNum].label = player.textContent;
+      bar3Data.data.datasets[playerNum].label = player.textContent;
+      radarData.data.datasets[playerNum].label = player.textContent;
+      line1data.data.datasets[playerNum].label = player.textContent;
       barChart.update();
       bar2Chart.update();
       bar3Chart.update();
       radarChart.update();
-      document.getElementById('img1').src = `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`;
-      document.getElementById('player1Name').textContent = player.textContent;
+      document.getElementById('img' + (currentPlayer + 1)).src = `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`;
+      document.getElementById(`player${currentPlayer + 1}Name`).textContent = player.textContent;
       if (data.data.length === 0) {
         console.log('no regular season average data');
-        barData.data.datasets[0].data = [];
-        bar2Data.data.datasets[0].data = [];
-        bar3Data.data.datasets[0].data = [];
-        radarData.data.datasets[0].data = [];
+        barData.data.datasets[playerNum].data = [];
+        bar2Data.data.datasets[playerNum].data = [];
+        bar3Data.data.datasets[playerNum].data = [];
+        radarData.data.datasets[playerNum].data = [];
         barChart.update();
         bar2Chart.update();
         bar3Chart.update();
         radarChart.update();
       }
-      barData.data.datasets[0].data = [response2.data[0].fgm, response2.data[0].fg3m, response2.data[0].ftm];
-      bar2Data.data.datasets[0].data = [response2.data[0].fga, response2.data[0].fg3a, response2.data[0].fta];
-      bar3Data.data.datasets[0].data = [response2.data[0].fg_pct * 100, response2.data[0].fg3_pct * 100, response2.data[0].ft_pct * 100];
-      radarData.data.datasets[0].data = [response2.data[0].pts, response2.data[0].reb, response2.data[0].blk, response2.data[0].stl, response2.data[0].ast];
+      barData.data.datasets[playerNum].data = [response2.data[0].fgm, response2.data[0].fg3m, response2.data[0].ftm];
+      bar2Data.data.datasets[playerNum].data = [response2.data[0].fga, response2.data[0].fg3a, response2.data[0].fta];
+      bar3Data.data.datasets[playerNum].data = [response2.data[0].fg_pct * 100, response2.data[0].fg3_pct * 100, response2.data[0].ft_pct * 100];
+      radarData.data.datasets[playerNum].data = [response2.data[0].pts, response2.data[0].reb, response2.data[0].blk, response2.data[0].stl, response2.data[0].ast];
       barChart.update();
       bar2Chart.update();
       bar3Chart.update();
@@ -265,6 +275,16 @@ function updateLineChart() {
       console.log(error);
     }
   });
+}
+
+
+function changePlayer(event) {
+  if (event.currentTarget.id === 'changePlayer2') {
+    currentPlayer = 1;
+  } else if (event.currentTarget.id === 'changePlayer1') {
+    currentPlayer = 0;
+  }
+  console.log(currentPlayer);
 }
 
 
