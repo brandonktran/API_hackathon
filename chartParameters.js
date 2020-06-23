@@ -1,3 +1,4 @@
+Chart.defaults.global.defaultFontColor = 'black';
 const barCTX = document.getElementById('bar1').getContext('2d');
 const barData = {
   type: 'bar',
@@ -29,7 +30,13 @@ const barData = {
       duration: 1500,
       easing: 'easeInQuad'
     },
-    legend: { display: true },
+    legend: {
+      display: true,
+      // labels: {
+      //   // This more specific font property overrides the global property
+      //   fontColor: 'white'
+      // }
+    },
     title: {
       display: true,
       text: 'Field Goals Made Per Game'

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="styles.css">
   <title>Basketball</title>
 </head>
@@ -11,12 +12,13 @@
 <body>
   <div>
     <h1>This is my app</h1>
+    <button>Compare Players</button>
+    <button><a href="team.html">Compare Teams</a></button>
     <div class="dropdown">
       <div id="myDropdown" class="dropdown-content">
         <input type="text" id="searchInput" placeholder="Search for a player.." onclick="searchForPlayer()">
         <button id="search">Search</button>
         <ul id="myUL" class="noshow">
-          <li><a href="#">random</a></li>
         </ul>
       </div>
     </div>
@@ -25,7 +27,7 @@
   <br>
   <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col" data-aos="flip-left" data-aos-duration="1000">
         <div class="wrapper">
           <div class="container2">
             <div class="img-container">
@@ -62,7 +64,7 @@
       <div class="col chart-container" style="height:300px">
         <canvas id="radar" style="height:300px; width:500px"></canvas>
       </div>
-      <div class="col">
+      <div class="col" data-aos="flip-left" data-aos-duration="1000">
         <div class="container2">
           <div class="img-container">
             <img id="img2" src="https://nba-players.herokuapp.com/players/james/lebron" alt="">
@@ -96,18 +98,18 @@
       </div>
     </div>
     <div class="row">
-      <div class="col chart-container" style="height:300px;">
+      <div class="col chart-container" data-aos="fade-right" data-aos-duration="1000" style="height:300px;">
         <canvas id="bar1" style="height:300px; width:500px"></canvas>
       </div>
-      <div class="col chart-container" style="height:300px;">
+      <div class="col chart-container" data-aos="fade-down" data-aos-duration="1000" style="height:300px;">
         <canvas id="bar2" style="height:300px; width:500px"></canvas>
       </div>
-      <div class="chart-container" style="height:300px">
+      <div class="chart-container" data-aos="fade-left" data-aos-duration="1000" style="height:300px">
         <canvas id="bar3" style="height:300px; width:500px"></canvas>
       </div>
     </div>
     <div class="row">
-      <div class="col chart-container" style="height:300px;">
+      <div class="col chart-container" data-aos="zoom-in-up" data-aos-duration="1000" style="height:300px;">
         <label for="cars">Choose a stat:</label>
         <select name="stats" id="stats" onchange="updateLineChart()">
           <option value="pts">Points</option>
@@ -119,10 +121,49 @@
         <br><br>
         <canvas id="line1" style="height:300px; width:500px"></canvas>
       </div>
+      <div class="col" data-aos="zoom-in-up" data-aos-duration="1000">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>GP</th>
+              <th>MIN</th>
+              <th>PTS</th>
+              <th>FGM</th>
+              <th>FGA</th>
+              <th>FG%</th>
+              <th>3PM</th>
+              <th>3PA</th>
+              <th>3P%</th>
+              <th>FTM</th>
+              <th>FTA</th>
+              <th>FT%</th>
+              <th>OREB</th>
+              <th>DREB</th>
+              <th>REB</th>
+              <th>AST</th>
+              <th>TOV</th>
+              <th>STL</th>
+              <th>BLK</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="firstRow">
+
+            </tr>
+            <tr id="secondRow">
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
-
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
   <script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
   <script src='chartParameters.js'></script>
