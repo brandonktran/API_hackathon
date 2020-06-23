@@ -6,6 +6,24 @@ let line1Chart = new Chart(line1CTX, line1data);
 let player1ID = 115;
 let player2ID = 237;
 let currentPlayer = 0;
+const statArray = {
+  'GP': 'games_played', 'MIN': 'min', 'PTS': 'pts', 'FGM': 'fgm',
+  'FGA': 'fga',
+  'FG%': 'fg_pct',
+  '3PM': 'fg3m',
+  '3PA': 'fg3a',
+  '3P%': 'fg3_pct',
+  'FTM': 'ftm',
+  'FTA': 'fta',
+  'FT%': 'ft_pct',
+  'OREB': 'oreb',
+  'DREB': 'dreb',
+  'REB': 'reb',
+  'AST': 'ast',
+  'TOV': 'turnover',
+  'STL': 'stl',
+  'BLK': 'blk'
+}
 const dropdown = document.getElementById('myUL');
 const search = document.getElementById('search');
 const changeOne = document.getElementById('changePlayer1');
@@ -31,6 +49,8 @@ $.ajax({
     bar3Data.data.datasets[1].data = [data.data[1].fg_pct * 100, data.data[1].fg3_pct * 100, data.data[1].ft_pct * 100];
     radarData.data.datasets[0].data = [data.data[0].pts, data.data[0].reb, data.data[0].blk, data.data[0].stl, data.data[0].ast];
     radarData.data.datasets[1].data = [data.data[1].pts, data.data[1].reb, data.data[1].blk, data.data[1].stl, data.data[1].ast];
+    createTable(data, 0, 0, 'Stephen Curry');
+    createTable(data, 1, 1, 'Lebron James');
     barChart = new Chart(barCTX, barData);
     bar2Chart = new Chart(bar2CTX, bar2Data);
     bar3Chart = new Chart(bar3CTX, bar3Data);
@@ -136,6 +156,7 @@ function getPlayerStats(player, playerNum) {
       bar2Chart.update();
       bar3Chart.update();
       radarChart.update();
+      createTable(data, currentPlayer, 0, player.textContent);
       document.getElementById('img' + (currentPlayer + 1)).src = `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`;
       document.getElementById(`player${currentPlayer + 1}Name`).textContent = player.textContent;
       if (data.data.length === 0) {
@@ -265,8 +286,23 @@ function changePlayer(event) {
 }
 
 
-function createTable() {
-
+function createTable(data, currentPlayer, index, name) {
+  let row;
+  if (currentPlayer === 0) {
+    row = document.getElementById('firstRow');
+    row.innerHTML = '';
+  } else if (currentPlayer === 1) {
+    row = document.getElementById('secondRow');
+  }
+  const first = document.createElement('td');
+  first.textContent = name;
+  row.append(first);
+  for (let prop in statArray) {
+    const elem = document.createElement('td');
+    elem.textContent = data.data[index][statArray[prop]];
+    row.append(elem);
+    console.log(statArray[prop]);
+  }
 }
 
 

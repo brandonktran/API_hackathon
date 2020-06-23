@@ -69,3 +69,40 @@ const myChart = new Chart(ctx, {
 // rgb(60, 186, 159)
 // rgb(232, 195, 185)
 // rgb(196, 88, 80)
+
+
+teams = {
+  atl: 'hawks',
+  bkn: 'nets',
+  bos: 'celtics',
+  cha: 'hornets',
+  chi: 'bulls',
+  cle: 'cavaliers',
+  dal: 'mavericks',
+  den: 'nuggets',
+  det: 'pistons',
+  gsw: 'warriors',
+  hou: 'rockets',
+  ind: 'pacers',
+  lac: 'clippers',
+  lal: 'lakers',
+  mem: 'grizzlies',
+  mia: 'heat',
+  mil: 'bucks',
+  min: 'timberwolves',
+  nop: 'pelicans',
+  nyk: 'knicks',
+  okc: 'thunder',
+  orl: 'magic',
+  phi: '76ers',
+  phx: 'suns',
+  por: 'blazers',
+  sac: 'kings',
+  sas: 'spurs',
+  tor: 'raptors',
+  uta: 'jazz',
+  was: 'wizards'
+}
+
+
+"http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/#{abbreviation}.png"
