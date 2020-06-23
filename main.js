@@ -22,15 +22,18 @@ const statArray = {
   'AST': 'ast',
   'TOV': 'turnover',
   'STL': 'stl',
-  'BLK': 'blk'
+  'BLK': 'blk',
+  'SEASON': 'season'
 }
+const lastSeason = 19;
 const dropdown = document.getElementById('myUL');
 const search = document.getElementById('search');
 const changeOne = document.getElementById('changePlayer1');
 changeOne.addEventListener('click', changePlayer);
 const changeTwo = document.getElementById('changePlayer2');
 changeTwo.addEventListener('click', changePlayer);
-search.addEventListener('click', findPlayer)
+search.addEventListener('click', findPlayer);
+const season = document.getElementById('season');
 
 
 $.ajax({
@@ -142,9 +145,10 @@ function getPlayerStats(player, playerNum) {
     type: 'GET',
     data: {
       'player_ids': [player.id],
+      'season': season.value
     },
     success: function (data) {
-      console.log(data);
+      console.log(data.data[0].season);
       console.log(player)
       const [firstName, lastName] = player.textContent.split(' ');
       barData.data.datasets[playerNum].label = player.textContent;
@@ -293,6 +297,7 @@ function createTable(data, currentPlayer, index, name) {
     row.innerHTML = '';
   } else if (currentPlayer === 1) {
     row = document.getElementById('secondRow');
+    row.innerHTML = '';
   }
   const first = document.createElement('td');
   first.textContent = name;
@@ -301,19 +306,36 @@ function createTable(data, currentPlayer, index, name) {
     const elem = document.createElement('td');
     elem.textContent = data.data[index][statArray[prop]];
     row.append(elem);
-    console.log(statArray[prop]);
   }
 }
+
+
+function createSeasonDropdown() {
+  const dropdown = document.getElementById('season');
+  for (let i = lastSeason; i > 0; i--) {
+    const elem = document.createElement('option');
+    if (i.length < 2) {
+      elem.value = '20' + '0' + i;
+    } else {
+      elem.value = elem.value = '20' + i;
+    }
+    elem.textContent = `'${i}` + `-'${i + 1}`;
+    dropdown.append(elem);
+  }
+}
+
+createSeasonDropdown()
 
 
 // $.ajax({
 //   url: 'https://www.balldontlie.io/api/v1/season_averages',
 //   type: 'GET',
 //   data: {
-//     'player_ids': [14],
+//     'player_ids': [115],
+//     'season': 2014
 //   },
 //   success: function (data) {
-//     console.log(data.data.length);
+//     console.log(data);
 //   },
 //   error: function (error) {
 //     console.log(error);
