@@ -5,25 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <title>Basketball</title>
 </head>
 
 <body>
     <div>
         <h1>This is my app</h1>
-        <button>Compare Players</button>
-        <button><a href="team.html">Compare Teams</a></button>
+        <button><a href="../index.html">Compare Players</a></button>
+        <button>Compare Teams</button>
+        <label for="season">Season:</label>
+        <select name="season" id="season">
+        </select>
         <div class="dropdown">
             <div id="myDropdown" class="dropdown-content">
-                <input type="text" id="searchInput" placeholder="Search for a player.." onclick="searchForPlayer()">
+                <input type="text" id="searchInput" placeholder="Search for a team.." onclick="searchForPlayer()"
+                    onkeyup="filterFunction()">
                 <button id="search">Search</button>
                 <ul id="myUL" class="noshow">
                 </ul>
             </div>
         </div>
     </div>
-
+    <hr>
     <br>
     <div class="container">
         <div class="row">
@@ -31,30 +35,24 @@
                 <div class="wrapper">
                     <div class="container2">
                         <div class="img-container">
-                            <img id="img1" src="https://nba-players.herokuapp.com/players/curry/stephen" alt="">
+                            <img id="img1"
+                                src="http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/lac.png"
+                                alt="">
                         </div>
 
                         <div class="content">
                             <div class="head">
-                                <p id="player1Name">Stephen Curry</p>
+                                <p id="player1Name">Los Angeles Clippers</p>
                             </div>
-                            <button id="changePlayer1">Change Player</button>
+                            <button id="changePlayer1">Change Team</button>
                             <div class="data">
                                 <div class="inner-data">
                                     <p>Position</p>
-                                    <span>G</span>
+                                    <span id="position1">G</span>
                                 </div>
                                 <div class="inner-data">
                                     <p>Team</p>
-                                    <span>Golden State Warriors</span>
-                                </div>
-                                <div class="inner-data">
-                                    <p>Height</p>
-                                    <span>6 feet 3 inches</span>
-                                </div>
-                                <div class="inner-data">
-                                    <p>Weight</p>
-                                    <span>190 lbs</span>
+                                    <span id="team1">Golden State Warriors</span>
                                 </div>
                             </div>
                         </div>
@@ -67,30 +65,24 @@
             <div class="col" data-aos="flip-left" data-aos-duration="1000">
                 <div class="container2">
                     <div class="img-container">
-                        <img id="img2" src="https://nba-players.herokuapp.com/players/james/lebron" alt="">
+                        <img id="img2"
+                            src="http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/lal.png"
+                            alt="">
                     </div>
 
                     <div class="content">
                         <div class="head">
-                            <p id="player2Name">Lebron James</p>
+                            <p id="player2Name">Los Angeles Lakers</p>
                         </div>
-                        <button id="changePlayer2">Change Player</button>
+                        <button id="changePlayer2">Change Team</button>
                         <div class="data">
                             <div class="inner-data">
                                 <p>Position</p>
-                                <span>F</span>
+                                <span id="position2">F</span>
                             </div>
                             <div class="inner-data">
                                 <p>Team</p>
-                                <span>Los Angeles Lakers</span>
-                            </div>
-                            <div class="inner-data">
-                                <p>Height</p>
-                                <span>6 feet 8 inches</span>
-                            </div>
-                            <div class="inner-data">
-                                <p>Weight</p>
-                                <span>250 lbs</span>
+                                <span id="team2">Los Angeles Lakers</span>
                             </div>
                         </div>
                     </div>
@@ -109,7 +101,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col chart-container" data-aos="zoom-in-up" data-aos-duration="1000" style="height:300px;">
+            <!-- <div class="col chart-container" data-aos="zoom-in-up" data-aos-duration="1000" style="height:300px;">
                 <label for="cars">Choose a stat:</label>
                 <select name="stats" id="stats" onchange="updateLineChart()">
                     <option value="pts">Points</option>
@@ -120,6 +112,35 @@
                 </select>
                 <br><br>
                 <canvas id="line1" style="height:300px; width:500px"></canvas>
+            </div> -->
+            <div class="col" data-aos="zoom-in-up" data-aos-duration="1000">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>MIN</th>
+                            <th>PPG</th>
+                            <th>OPPG</th>
+                            <th>FG%</th>
+                            <th>FT%</th>
+                            <th>ORPG</th>
+                            <th>DREBPG</th>
+                            <th>RPG</th>
+                            <th>APG</th>
+                            <th>TOVPG</th>
+                            <th>STLPG</th>
+                            <th>BLKPG</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="firstRow">
+
+                        </tr>
+                        <tr id="secondRow">
+
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -130,8 +151,8 @@
     </script>
     <script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script src='chartParameters.js'></script>
-    <script src='main.js'></script>
+    <script src="chartTeamParameters.js"></script>
+    <script src="team.js"></script>
 </body>
 
 </html>
