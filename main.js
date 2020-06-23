@@ -3,8 +3,6 @@ let bar2Chart;
 let bar3Chart;
 let radarChart;
 let line1Chart = new Chart(line1CTX, line1data);
-let response;
-let response2;
 let player1ID = 115;
 let player2ID = 237;
 let currentPlayer = 0;
@@ -25,21 +23,18 @@ $.ajax({
   },
   success: function (data) {
     console.log(data);
-    response2 = data;
-    barData.data.datasets[0].data = [response2.data[0].fgm, response2.data[0].fg3m, response2.data[0].ftm];
-    barData.data.datasets[1].data = [response2.data[1].fgm, response2.data[1].fg3m, response2.data[1].ftm];
-    bar2Data.data.datasets[0].data = [response2.data[0].fga, response2.data[0].fg3a, response2.data[0].fta];
-    bar2Data.data.datasets[1].data = [response2.data[1].fga, response2.data[1].fg3a, response2.data[1].fta];
-    bar3Data.data.datasets[0].data = [response2.data[0].fg_pct * 100, response2.data[0].fg3_pct * 100, response2.data[0].ft_pct * 100];
-    bar3Data.data.datasets[1].data = [response2.data[1].fg_pct * 100, response2.data[1].fg3_pct * 100, response2.data[1].ft_pct * 100];
-    radarData.data.datasets[0].data = [response2.data[0].pts, response2.data[0].reb, response2.data[0].blk, response2.data[0].stl, response2.data[0].ast];
-    radarData.data.datasets[1].data = [response2.data[1].pts, response2.data[1].reb, response2.data[1].blk, response2.data[1].stl, response2.data[1].ast];
+    barData.data.datasets[0].data = [data.data[0].fgm, data.data[0].fg3m, data.data[0].ftm];
+    barData.data.datasets[1].data = [data.data[1].fgm, data.data[1].fg3m, data.data[1].ftm];
+    bar2Data.data.datasets[0].data = [data.data[0].fga, data.data[0].fg3a, data.data[0].fta];
+    bar2Data.data.datasets[1].data = [data.data[1].fga, data.data[1].fg3a, data.data[1].fta];
+    bar3Data.data.datasets[0].data = [data.data[0].fg_pct * 100, data.data[0].fg3_pct * 100, data.data[0].ft_pct * 100];
+    bar3Data.data.datasets[1].data = [data.data[1].fg_pct * 100, data.data[1].fg3_pct * 100, data.data[1].ft_pct * 100];
+    radarData.data.datasets[0].data = [data.data[0].pts, data.data[0].reb, data.data[0].blk, data.data[0].stl, data.data[0].ast];
+    radarData.data.datasets[1].data = [data.data[1].pts, data.data[1].reb, data.data[1].blk, data.data[1].stl, data.data[1].ast];
     barChart = new Chart(barCTX, barData);
     bar2Chart = new Chart(bar2CTX, bar2Data);
     bar3Chart = new Chart(bar3CTX, bar3Data);
     radarChart = new Chart(radarCTX, radarData);
-    // const line1Chart = new Chart(line1CTX, line1data);
-    // const line2Chart = new Chart(line2CTX, line2data);
   },
   error: function (error) {
     console.log(error);
@@ -91,7 +86,6 @@ function findPlayer() {
       'per_page': 100
     },
     success: function (data) {
-      response = data;
       for (let i = 0; i < data.data.length; i++) {
         const item = document.createElement('li');
         const button = document.createElement('button');
@@ -106,22 +100,6 @@ function findPlayer() {
           getPlayerStats(event.currentTarget, currentPlayer);
           const id = event.currentTarget.id;
           updateLineChart()
-          // $.ajax({
-          //   url: "https://www.balldontlie.io/api/v1/stats",
-          //   type: 'GET',
-          //   data: {
-          //     'player_ids': [id],
-          //     'per_page': 10
-          //   },
-          //   success: function (data) {
-          //     const total_pages = data.meta.total_pages;
-          //     console.log(total_pages, id)
-          //     getPlayerGameStats(total_pages, id, 0);
-          //   },
-          //   error: function (error) {
-          //     console.log(error);
-          //   }
-          // });
         })
         item.append(button);
         dropdown.append(item);
@@ -147,7 +125,6 @@ function getPlayerStats(player, playerNum) {
     },
     success: function (data) {
       console.log(data);
-      response2 = data;
       console.log(player)
       const [firstName, lastName] = player.textContent.split(' ');
       barData.data.datasets[playerNum].label = player.textContent;
@@ -172,10 +149,10 @@ function getPlayerStats(player, playerNum) {
         bar3Chart.update();
         radarChart.update();
       }
-      barData.data.datasets[playerNum].data = [response2.data[0].fgm, response2.data[0].fg3m, response2.data[0].ftm];
-      bar2Data.data.datasets[playerNum].data = [response2.data[0].fga, response2.data[0].fg3a, response2.data[0].fta];
-      bar3Data.data.datasets[playerNum].data = [response2.data[0].fg_pct * 100, response2.data[0].fg3_pct * 100, response2.data[0].ft_pct * 100];
-      radarData.data.datasets[playerNum].data = [response2.data[0].pts, response2.data[0].reb, response2.data[0].blk, response2.data[0].stl, response2.data[0].ast];
+      barData.data.datasets[playerNum].data = [data.data[0].fgm, data.data[0].fg3m, data.data[0].ftm];
+      bar2Data.data.datasets[playerNum].data = [data.data[0].fga, data.data[0].fg3a, data.data[0].fta];
+      bar3Data.data.datasets[playerNum].data = [data.data[0].fg_pct * 100, data.data[0].fg3_pct * 100, data.data[0].ft_pct * 100];
+      radarData.data.datasets[playerNum].data = [data.data[0].pts, data.data[0].reb, data.data[0].blk, data.data[0].stl, data.data[0].ast];
       barChart.update();
       bar2Chart.update();
       bar3Chart.update();
@@ -236,7 +213,7 @@ function getPlayerGameStats(lastPage, id, playerNum, stat) {
 }
 
 
-function myFunction() {
+function searchForPlayer() {
   document.getElementById("myUL").className = "show";
 }
 
@@ -288,31 +265,52 @@ function changePlayer(event) {
 }
 
 
-$.ajax({
-  url: 'https://www.balldontlie.io/api/v1/season_averages',
-  type: 'GET',
-  data: {
-    'player_ids': [14],
-  },
-  success: function (data) {
-    console.log(data.data.length);
-  },
-  error: function (error) {
-    console.log(error);
-  }
-});
+function createTable() {
 
-$.ajax({
-  url: "https://www.balldontlie.io/api/v1/stats",
-  type: 'GET',
-  data: {
-    'player_ids': [14],
-    'per_page': 10
-  },
-  success: function (data) {
-    console.log(data)
-  },
-  error: function (error) {
-    console.log(error);
-  }
-});
+}
+
+
+// $.ajax({
+//   url: 'https://www.balldontlie.io/api/v1/season_averages',
+//   type: 'GET',
+//   data: {
+//     'player_ids': [14],
+//   },
+//   success: function (data) {
+//     console.log(data.data.length);
+//   },
+//   error: function (error) {
+//     console.log(error);
+//   }
+// });
+
+// $.ajax({
+//   url: "https://www.balldontlie.io/api/v1/stats",
+//   type: 'GET',
+//   data: {
+//     'player_ids': [14],
+//     'per_page': 10
+//   },
+//   success: function (data) {
+//     console.log(data)
+//   },
+//   error: function (error) {
+//     console.log(error);
+//   }
+// });
+
+
+// $.ajax({
+//   url: 'https://www.balldontlie.io/api/v1/players',
+//   type: 'GET',
+//   data: {
+//     'search': 'lebron james',
+//     'per_page': 100
+//   },
+//   success: function (data) {
+//     console.log(data);
+//   },
+//   error: function (error) {
+//     console.log(error);
+//   }
+// });
