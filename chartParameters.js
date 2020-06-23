@@ -200,6 +200,10 @@ const line1data = {
     ]
   },
   options: {
+    animation: {
+      duration: 1500,
+      easing: 'linear'
+    },
     title: {
       display: true,
       text: 'Last 10 Games'
