@@ -152,6 +152,7 @@ function getPlayerStats(player, playerNum) {
             // createTable(data, currentPlayer, 0, player.textContent);
             document.getElementById('img' + (currentPlayer + 1)).src = `http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${team.abbreviation.toLowerCase()}.png`;
             document.getElementById(`player${currentPlayer + 1}Name`).textContent = team.name + ' ' + team.nickname;
+            flip();
             // if (data.data.length === 0) {
             //     console.log('no regular season average data');
             //     barData.data.datasets[playerNum].data = [];
@@ -243,6 +244,15 @@ function createTeamDropDown() {
         item.id = teams[i].abbreviation;
         dropdown.append(item);
     }
+}
+
+function flip() {
+    if (currentPlayer === 0) {
+        $('.card1').toggleClass('flipped');
+    } else if (currentPlayer === 1) {
+        $('.card2').toggleClass('flipped');
+    }
+
 }
 
 createSeasonDropdown()

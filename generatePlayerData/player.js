@@ -179,6 +179,7 @@ function getPlayerStats(player, playerNum) {
       createTable(data, currentPlayer, 0, player.textContent);
       document.getElementById('img' + (currentPlayer + 1)).src = `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`;
       document.getElementById(`player${currentPlayer + 1}Name`).textContent = player.textContent;
+      flip();
       if (data.data.length === 0) {
         console.log('no regular season average data');
         barData.data.datasets[playerNum].data = [];
@@ -345,8 +346,15 @@ function createSeasonDropdown() {
   }
 }
 
-createSeasonDropdown()
+function flip() {
+  if (currentPlayer === 0) {
+    $('.card1').toggleClass('flipped');
+  } else if (currentPlayer === 1) {
+    $('.card2').toggleClass('flipped');
+  }
 
+}
+createSeasonDropdown()
 
 // $.ajax({
 //   url: 'https://www.balldontlie.io/api/v1/season_averages',
@@ -379,19 +387,19 @@ createSeasonDropdown()
 // });
 
 
-$.ajax({
-  url: 'https://www.balldontlie.io/api/v1/players',
-  type: 'GET',
-  data: {
-    'search': 'lebron james',
-    'per_page': 100
-  },
-  success: function (data) {
-    console.log(data);
-  },
-  error: function (error) {
-    console.log(error);
-  }
-});
+// $.ajax({
+//   url: 'https://www.balldontlie.io/api/v1/players',
+//   type: 'GET',
+//   data: {
+//     'search': 'lebron james',
+//     'per_page': 100
+//   },
+//   success: function (data) {
+//     console.log(data);
+//   },
+//   error: function (error) {
+//     console.log(error);
+//   }
+// });
 
 // data.data.height_feet height_inches position team.full_name weight_pounds

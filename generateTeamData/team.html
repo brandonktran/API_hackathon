@@ -12,16 +12,15 @@
 <body>
     <div id="heading">
         <h1>Ballify</h1>
-        <button><a href="../index.html">Compare Players</a></button>
-        <button>Compare Teams</button>
-        <label for="season">Season:</label>
+        <button class="btn black margin-t"><a href="../index.html">Compare Players</a></button>
+        <button class="btn black margin-t">Compare Teams</button>
+        <label for="season" id="labelSeason">Season:</label>
         <select name="season" id="season">
         </select>
         <div class="dropdown">
             <div id="myDropdown" class="dropdown-content">
                 <input type="text" id="searchInput" placeholder="Search for a team.." onclick="searchForPlayer()"
                     onkeyup="filterFunction()">
-                <button id="search">Search</button>
                 <ul id="myUL" class="noshow">
                 </ul>
             </div>
@@ -31,26 +30,28 @@
     <br>
     <div class="container">
         <div class="row topRow">
-            <div class="col card" data-aos="flip-left" data-aos-duration="1000">
+            <div class="col card1" data-aos="flip-left" data-aos-duration="1000">
                 <div class="wrapper">
-                    <div class="container2">
-                        <div class="img-container">
-                            <img id="img1"
-                                src="http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/lac.png"
-                                alt="">
-                        </div>
+                    <div class="card1">
+                        <div class="front">
+                            <div class="container2">
+                                <div class="img-container">
+                                    <img id="img1"
+                                        src="http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/lac.png"
+                                        alt="">
+                                </div>
 
-                        <div class="content">
-                            <div class="head">
-                                <p id="player1Name">Los Angeles Clippers</p>
+                                <div class="content">
+                                    <div class="head">
+                                        <p id="player1Name">Los Angeles Clippers</p>
+                                    </div>
+                                    <button id="changePlayer1" class="btn black margin-b">Change Team</button>
+                                    <div class="data">
+                                    </div>
+                                </div>
                             </div>
-                            <button id="changePlayer1">Change Team</button>
-                            <div class="data">
-                                <!-- <div class="inner-data">
-                                    <p>Position</p>
-                                    <span id="position1">G</span>
-                                </div> -->
-                            </div>
+                        </div>
+                        <div class="back">
                         </div>
                     </div>
                 </div>
@@ -58,24 +59,32 @@
             <div class="col chart-container radar" data-aos="flip-left" data-aos-duration="1000" style="height:300px">
                 <canvas id="radar" style="height:300px; width:500px"></canvas>
             </div>
-            <div class="col card" data-aos="flip-left" data-aos-duration="1000">
-                <div class="container2">
-                    <div class="img-container">
-                        <img id="img2"
-                            src="http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/lal.png"
-                            alt="">
-                    </div>
+            <div class="col card2" data-aos="flip-left" data-aos-duration="1000">
+                <div class="wrapper">
+                    <div class="card2">
+                        <div class="front">
+                            <div class="container2">
+                                <div class="img-container">
+                                    <img id="img2"
+                                        src="http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/lal.png"
+                                        alt="">
+                                </div>
 
-                    <div class="content">
-                        <div class="head">
-                            <p id="player2Name">Los Angeles Lakers</p>
+                                <div class="content">
+                                    <div class="head">
+                                        <p id="player2Name">Los Angeles Lakers</p>
+                                    </div>
+                                    <button id="changePlayer2" class="btn black margin-b">Change Team</button>
+                                    <div class="data">
+                                        <!-- <div class="inner-data">
+                                                                    <p>Position</p>
+                                                                    <span id="position2">F</span>
+                                                                </div> -->
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <button id="changePlayer2">Change Team</button>
-                        <div class="data">
-                            <!-- <div class="inner-data">
-                                <p>Position</p>
-                                <span id="position2">F</span>
-                            </div> -->
+                        <div class="back">
                         </div>
                     </div>
                 </div>
