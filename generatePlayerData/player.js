@@ -302,6 +302,7 @@ function changePlayer(event) {
   } else if (event.currentTarget.id === 'changePlayer1') {
     currentPlayer = 0;
   }
+  dropdown.innerHTML = '';
   const item = document.createElement('li');
   item.textContent = 'Search for a Player Above'
   dropdown.append(item);

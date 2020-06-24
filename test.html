@@ -10,75 +10,14 @@
 </head>
 
 <body>
-    <div class="flip-card">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <div class="wrapper">
-                    <div class="container2">
-                        <div class="img-container">
-                            <img id="img1" src="https://nba-players.herokuapp.com/players/curry/stephen" alt="">
-                        </div>
-
-                        <div class="content">
-                            <div class="head">
-                                <p id="player1Name">Stephen Curry</p>
-                            </div>
-                            <button id="changePlayer1">Change Player</button>
-                            <div class="data">
-                                <div class="inner-data">
-                                    <p>Position</p>
-                                    <span id="position1">G</span>
-                                </div>
-                                <div class="inner-data">
-                                    <p>Team</p>
-                                    <span id="team1">Golden State Warriors</span>
-                                </div>
-                                <div class="inner-data">
-                                    <p>Height</p>
-                                    <span id="height1">6 feet 3 inches</span>
-                                </div>
-                                <div class="inner-data">
-                                    <p>Weight</p>
-                                    <span id="weight1">190 lbs</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div id="f1_container">
+        <div id="f1_card" class="shadow">
+            <div class="front face">
+                <img src="generatePlayerData/kawhi.jpg" alt="hi" />
             </div>
-            <div class="flip-card-back">
-                <div class="wrapper">
-                    <div class="container2">
-                        <div class="img-container">
-                            <img id="img1" src="https://nba-players.herokuapp.com/players/curry/stephen" alt="">
-                        </div>
-
-                        <div class="content">
-                            <div class="head">
-                                <p id="player1Name">Stephen Curry</p>
-                            </div>
-                            <button id="changePlayer1">Change Player</button>
-                            <div class="data">
-                                <div class="inner-data">
-                                    <p>Position</p>
-                                    <span id="position1">G</span>
-                                </div>
-                                <div class="inner-data">
-                                    <p>Team</p>
-                                    <span id="team1">Golden State Warriors</span>
-                                </div>
-                                <div class="inner-data">
-                                    <p>Height</p>
-                                    <span id="height1">6 feet 3 inches</span>
-                                </div>
-                                <div class="inner-data">
-                                    <p>Weight</p>
-                                    <span id="weight1">190 lbs</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="back face center">
+                <p>This is nice for exposing more information about an image.</p>
+                <p>Any content can go here.</p>
             </div>
         </div>
     </div>
@@ -88,6 +27,14 @@
     </script>
     <script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <script>
+        // var card = document.querySelector('.card');
+        // card.addEventListener('click', function () {
+        //     card.classList.toggle('is-flipped');
+        // });
+        $("#f1_container").flip();
+    </script>
 </body>
 
 </html>

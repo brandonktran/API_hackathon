@@ -1,5 +1,7 @@
 const currSeason = 2019
-Chart.defaults.global.defaultFontColor = 'black';
+const colorGrid = 'white';
+Chart.defaults.global.defaultFontColor = 'white';
+Chart.defaults.global.defaultFontSize = 18;
 const barCTX = document.getElementById('bar1').getContext('2d');
 const barData = {
     type: 'bar',
@@ -10,19 +12,19 @@ const barData = {
                 label: currSeason + ' ' + "Los Angeles Clippers",
                 fillColor: "red",
                 data: [],
-                backgroundColor: 'rgb(62, 149, 205, 0.4)',
+                backgroundColor: 'rgb(62, 149, 205, 0.8)',
                 borderColor: 'rgb(62, 149, 205, 1)',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rgb(62, 149, 205, 0.8)'
+                hoverBackgroundColor: 'rgb(62, 149, 205)'
             },
             {
                 label: currSeason + ' ' + "Los Angeles Lakers",
                 fillColor: "blue",
                 data: [],
-                backgroundColor: 'rgb(142, 94, 162, 0.4)',
+                backgroundColor: 'rgb(142, 94, 162, 0.8)',
                 borderColor: 'rgb(142, 94, 162, 1)',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rgb(142, 94, 162, 0.8)'
+                hoverBackgroundColor: 'rgb(142, 94, 162)'
             }
         ]
     },
@@ -43,7 +45,15 @@ const barData = {
             text: 'Shooting Percentage Averages'
         },
         scales: {
+            xAxes: [{
+                gridLines: {
+                    color: colorGrid,
+                }
+            }],
             yAxes: [{
+                gridLines: {
+                    color: colorGrid,
+                },
                 ticks: {
                     beginAtZero: true,
                     // max: 30,
@@ -64,19 +74,19 @@ const bar2Data = {
                 label: currSeason + ' ' + "Los Angeles Clippers",
                 fillColor: "red",
                 data: [],
-                backgroundColor: 'rgb(60, 186, 159, 0.4)',
+                backgroundColor: 'rgb(60, 186, 159, 0.8)',
                 borderColor: 'rgb(60, 186, 159, 1)',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rgb(60, 186, 159, 0.8)'
+                hoverBackgroundColor: 'rgb(60, 186, 159, 1)'
             },
             {
                 label: currSeason + ' ' + "Los Angeles Lakers",
                 fillColor: "blue",
                 data: [],
-                backgroundColor: 'rgb(232, 195, 185, 0.6)',
+                backgroundColor: 'rgb(232, 195, 185, 0.8)',
                 borderColor: 'rgb(232, 195, 185, 1)',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rrgb(232, 195, 185, 0.8)'
+                hoverBackgroundColor: 'rrgb(232, 195, 185, 1)'
             }
         ]
     },
@@ -91,7 +101,15 @@ const bar2Data = {
             text: 'Points Per Game'
         },
         scales: {
+            xAxes: [{
+                gridLines: {
+                    color: colorGrid,
+                }
+            }],
             yAxes: [{
+                gridLines: {
+                    color: colorGrid,
+                },
                 ticks: {
                     beginAtZero: true,
                     // max: 30,
@@ -112,19 +130,19 @@ const bar3Data = {
                 label: currSeason + ' ' + "Los Angeles Clippers",
                 fillColor: "red",
                 data: [],
-                backgroundColor: 'rgb(196, 88, 80, 0.4)',
+                backgroundColor: 'rgb(196, 88, 80, 0.8)',
                 borderColor: 'rgb(196, 88, 80, 1)',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rgb(196, 88, 80, 0.8)'
+                hoverBackgroundColor: 'rgb(196, 88, 80, 1)'
             },
             {
                 label: currSeason + ' ' + "Los Angeles Lakers",
                 fillColor: "blue",
                 data: [],
-                backgroundColor: 'rgb(232, 195, 185, 0.6)',
+                backgroundColor: 'rgb(232, 195, 185, 0.8)',
                 borderColor: 'rgb(232, 195, 185, 1)',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rrgb(232, 195, 185, 0.8)'
+                hoverBackgroundColor: 'rrgb(232, 195, 185, 1)'
             }
         ]
     },
@@ -139,7 +157,15 @@ const bar3Data = {
             text: 'Efficiency'
         },
         scales: {
+            xAxes: [{
+                gridLines: {
+                    color: colorGrid,
+                }
+            }],
             yAxes: [{
+                gridLines: {
+                    color: colorGrid,
+                },
                 ticks: {
                     beginAtZero: true,
                     // max: 30,
@@ -157,19 +183,19 @@ const radarData = {
         labels: ["PPG", "RPG", "BPG", "SPG", "APG"],
         datasets: [{
             label: currSeason + ' ' + "Los Angeles Clippers",
-            backgroundColor: "rgba(200,0,0,0.2)",
+            backgroundColor: "rgba(200,0,0,0.8)",
             data: [],
             pointHoverRadius: 10,
-            pointHoverBackgroundColor: "rgba(200,0,0,0.5)",
+            pointHoverBackgroundColor: "rgba(200,0,0)",
             lineTension: 0.8
         }
             ,
         {
             label: currSeason + ' ' + "Los Angeles Lakers",
-            backgroundColor: "rgba(0,0,200,0.2)",
+            backgroundColor: "rgba(0,0,200,0.8)",
             data: [],
             pointHoverRadius: 10,
-            pointHoverBackgroundColor: "rgba(0,0,200,0.5)"
+            pointHoverBackgroundColor: "rgba(0,0,200)"
         }
         ]
     },
@@ -178,8 +204,19 @@ const radarData = {
             duration: 1500,
             easing: 'easeInQuad'
         },
-        scales: {
+        scale: {
+            gridLines: {
+                color: colorGrid
+            },
+            pointLabels: {
+                fontSize: 15
+            },
+            angleLines: {
+                color: colorGrid
+            },
             ticks: {
+                callback: function () { return "" },
+                backdropColor: 'rgb(46, 46, 46)',
                 beginAtZero: true,
                 // max: 30,
                 // min: 0,
