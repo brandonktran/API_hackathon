@@ -17,7 +17,6 @@ h1 {
 .container2{
   width: 480px;
   height: 200px;
-  background: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
@@ -176,9 +175,27 @@ h1 {
 }
 
 #heading {
+  width:100%;
   display: flex;
+  background-color: rgb(46, 46, 46);
   margin-bottom: 2%;
+  position: fixed;
+  z-index:1;
+  top: 0;
+  width: 100%;
 }
+
+.topRow {
+  padding-top: 90px;
+}
+
+/* #heading {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 20px;
+} */
+
 
 
 button, select, input, #myUL {
