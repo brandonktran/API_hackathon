@@ -1,5 +1,8 @@
-const currSeason = 2019
-Chart.defaults.global.defaultFontColor = 'black';
+const currSeason = 2019;
+const colorGrid = 'white';
+Chart.defaults.global.defaultFontColor = 'white';
+Chart.defaults.global.defaultFontSize = 18;
+// Chart.defaults.global.gridLines = 'white';
 const barCTX = document.getElementById('bar1').getContext('2d');
 const barData = {
   type: 'bar',
@@ -10,19 +13,19 @@ const barData = {
         label: currSeason + ' ' + "Stephen Curry",
         fillColor: "red",
         data: [],
-        backgroundColor: 'rgb(62, 149, 205, 0.4)',
-        borderColor: 'rgb(62, 149, 205, 1)',
+        backgroundColor: 'rgb(0, 63, 92, 0.8)',
+        borderColor: 'rgb(0, 63, 92)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgb(62, 149, 205, 0.8)'
+        hoverBackgroundColor: 'rgb(0, 63, 92, 1)'
       },
       {
         label: currSeason + ' ' + "Lebron James",
         fillColor: "blue",
         data: [],
-        backgroundColor: 'rgb(142, 94, 162, 0.4)',
-        borderColor: 'rgb(142, 94, 162, 1)',
+        backgroundColor: 'rgb(255, 166, 0, 0.8)',
+        borderColor: 'rgb(255, 166, 0)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgb(142, 94, 162, 0.8)'
+        hoverBackgroundColor: 'rgb(255, 166, 0)'
       }
     ]
   },
@@ -43,7 +46,15 @@ const barData = {
       text: 'Field Goals Made Per Game'
     },
     scales: {
+      xAxes: [{
+        gridLines: {
+          color: colorGrid,
+        }
+      }],
       yAxes: [{
+        gridLines: {
+          color: colorGrid,
+        },
         ticks: {
           beginAtZero: true,
           // max: 30,
@@ -64,19 +75,19 @@ const bar2Data = {
         label: currSeason + ' ' + "Stephen Curry",
         fillColor: "red",
         data: [],
-        backgroundColor: 'rgb(60, 186, 159, 0.4)',
-        borderColor: 'rgb(60, 186, 159, 1)',
+        backgroundColor: 'rgb(221, 81, 130, 0.8)',
+        borderColor: 'rgb(221, 81, 130)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgb(60, 186, 159, 0.8)'
+        hoverBackgroundColor: 'rgb(221, 81, 130)'
       },
       {
         label: currSeason + ' ' + "Lebron James",
         fillColor: "blue",
         data: [],
-        backgroundColor: 'rgb(232, 195, 185, 0.6)',
-        borderColor: 'rgb(232, 195, 185, 1)',
+        backgroundColor: 'rgb(255, 110, 84, 0.8)',
+        borderColor: 'rgb(255, 110, 84)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rrgb(232, 195, 185, 0.8)'
+        hoverBackgroundColor: 'rgb(255, 110, 84)'
       }
     ]
   },
@@ -91,7 +102,15 @@ const bar2Data = {
       text: 'Field Goal Attempts Per Game'
     },
     scales: {
+      xAxes: [{
+        gridLines: {
+          color: colorGrid,
+        }
+      }],
       yAxes: [{
+        gridLines: {
+          color: colorGrid,
+        },
         ticks: {
           beginAtZero: true,
           // max: 30,
@@ -112,19 +131,19 @@ const bar3Data = {
         label: currSeason + ' ' + "Stephen Curry",
         fillColor: "red",
         data: [],
-        backgroundColor: 'rgb(196, 88, 80, 0.4)',
-        borderColor: 'rgb(196, 88, 80, 1)',
+        backgroundColor: 'rgb(68, 78, 134, 0.8)',
+        borderColor: 'rgb(68, 78, 134)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgb(196, 88, 80, 0.8)'
+        hoverBackgroundColor: 'rgb(68, 78, 134)'
       },
       {
         label: currSeason + ' ' + "Lebron James",
         fillColor: "blue",
         data: [],
-        backgroundColor: 'rgb(232, 195, 185, 0.6)',
-        borderColor: 'rgb(232, 195, 185, 1)',
+        backgroundColor: 'rgb(149, 81, 150, 0.8)',
+        borderColor: 'rgb(149, 81, 150)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rrgb(232, 195, 185, 0.8)'
+        hoverBackgroundColor: 'rgb(149, 81, 150)'
       }
     ]
   },
@@ -139,7 +158,15 @@ const bar3Data = {
       text: 'Field Goal Percentage %'
     },
     scales: {
+      xAxes: [{
+        gridLines: {
+          color: colorGrid,
+        }
+      }],
       yAxes: [{
+        gridLines: {
+          color: colorGrid,
+        },
         ticks: {
           beginAtZero: true,
           // max: 30,
@@ -157,19 +184,19 @@ const radarData = {
     labels: ["PPG", "RPG", "BPG", "SPG", "APG"],
     datasets: [{
       label: currSeason + ' ' + "Stephen Curry",
-      backgroundColor: "rgba(200,0,0,0.2)",
+      backgroundColor: "rgba(200,0,0,0.5)",
       data: [],
       pointHoverRadius: 10,
-      pointHoverBackgroundColor: "rgba(200,0,0,0.5)",
+      pointHoverBackgroundColor: "rgba(200,0,0,0.8)",
       // lineTension: 0.5
     }
       ,
     {
       label: currSeason + ' ' + "Lebron James",
-      backgroundColor: "rgba(0,0,200,0.2)",
+      backgroundColor: "rgba(0,0,200,0.5)",
       data: [],
       pointHoverRadius: 10,
-      pointHoverBackgroundColor: "rgba(0,0,200,0.5)"
+      pointHoverBackgroundColor: "rgba(0,0,200,0.8)"
     }
     ]
   },
@@ -178,8 +205,19 @@ const radarData = {
       duration: 1500,
       easing: 'easeInQuad'
     },
-    scales: {
+    scale: {
+      gridLines: {
+        color: colorGrid
+      },
+      pointLabels: {
+        fontSize: 15
+      },
+      angleLines: {
+        color: colorGrid
+      },
       ticks: {
+        callback: function () { return "" },
+        backdropColor: 'rgb(46, 46, 46)',
         beginAtZero: true,
         // max: 30,
         // min: 0,
@@ -197,11 +235,13 @@ const line1data = {
     datasets: [{
       data: [],
       label: "Stephen Curry",
+      pointBorderWidth: 2,
       borderColor: "#3e95cd",
       fill: false
     }, {
       data: [],
       label: "Lebron James",
+      pointBorderWidth: 2,
       borderColor: "#8e5ea2",
       fill: false
     }
@@ -215,6 +255,24 @@ const line1data = {
     title: {
       display: true,
       text: 'Last 10 Games'
+    },
+    scales: {
+      xAxes: [{
+        gridLines: {
+          color: colorGrid,
+        }
+      }],
+      yAxes: [{
+        gridLines: {
+          color: colorGrid,
+        },
+        ticks: {
+          beginAtZero: true,
+          // max: 30,
+          // min: 0,
+          // stepSize: 5
+        }
+      }]
     }
   }
 }
