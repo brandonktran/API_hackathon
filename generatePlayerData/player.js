@@ -118,8 +118,7 @@ function findPlayer() {
     },
     success: function (data) {
       for (let i = 0; i < data.data.length; i++) {
-        const item = document.createElement('li');
-        const button = document.createElement('button');
+        const button = document.createElement('li');
         const playerProf = data.data[i];
         button.id = data.data[i].id;
         button.textContent = data.data[i].first_name + ' ' + data.data[i].last_name;
@@ -128,13 +127,13 @@ function findPlayer() {
             // data.data.height_feet height_inches position team.full_name weight_pounds
             player1ID = event.currentTarget.id;
             weight1.textContent = playerProf.weight_pounds;
-            height1.textContent = playerProf.height_feet + 'feet' + ' ' + playerProf.height_inches + ' inches';
+            height1.textContent = playerProf.height_feet + ' feet' + ' ' + playerProf.height_inches + ' inches';
             team1.textContent = playerProf.team.full_name;
             position1.textContent = playerProf.position;
           } else if (currentPlayer === 1) {
             player2ID = event.currentTarget.id;
             weight2.textContent = playerProf.weight_pounds;
-            height2.textContent = playerProf.height_feet + 'feet' + ' ' + playerProf.height_inches + ' inches';
+            height2.textContent = playerProf.height_feet + ' feet' + ' ' + playerProf.height_inches + ' inches';
             team2.textContent = playerProf.team.full_name;
             position2.textContent = playerProf.position;
           }
@@ -142,8 +141,7 @@ function findPlayer() {
           const id = event.currentTarget.id;
           updateLineChart()
         })
-        item.append(button);
-        dropdown.append(item);
+        dropdown.append(button);
       }
       console.log(data);
     },
@@ -304,6 +302,10 @@ function changePlayer(event) {
   } else if (event.currentTarget.id === 'changePlayer1') {
     currentPlayer = 0;
   }
+  const item = document.createElement('li');
+  item.textContent = 'Search for a Player Above'
+  dropdown.append(item);
+  dropdown.className = "show";
   console.log(currentPlayer);
 }
 

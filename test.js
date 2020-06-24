@@ -106,3 +106,43 @@ teams = {
 
 
 "http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/#{abbreviation}.png"
+
+
+  < div class="flip-card" >
+    <div class="flip-card-inner">
+      <div class="col" data-aos="flip-left" data-aos-duration="1000">
+        <div class="wrapper">
+          <div class="container2">
+            <div class="img-container">
+              <img id="img1" src="https://nba-players.herokuapp.com/players/curry/stephen" alt="">
+            </div>
+
+              <div class="content">
+                <div class="head">
+                  <p id="player1Name">Stephen Curry</p>
+                </div>
+                <button id="changePlayer1">Change Player</button>
+                <div class="data">
+                  <div class="inner-data">
+                    <p>Position</p>
+                    <span id="position1">G</span>
+                  </div>
+                  <div class="inner-data">
+                    <p>Team</p>
+                    <span id="team1">Golden State Warriors</span>
+                  </div>
+                  <div class="inner-data">
+                    <p>Height</p>
+                    <span id="height1">6 feet 3 inches</span>
+                  </div>
+                  <div class="inner-data">
+                    <p>Weight</p>
+                    <span id="weight1">190 lbs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

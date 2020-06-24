@@ -51,13 +51,7 @@ const teams = [{ teamID: "1610612737", abbreviation: "ATL", name: "Atlanta Hawks
 { teamID: "1610612766", abbreviation: "CHA", name: "Charlotte Hornets" }]
 const lastSeason = 19;
 const position1 = document.getElementById('position1');
-const team1 = document.getElementById('team1');
-const height1 = document.getElementById('height1');
-const weight1 = document.getElementById('weight1');
 const position2 = document.getElementById('position2');
-const team2 = document.getElementById('team2');
-const height2 = document.getElementById('height2');
-const weight2 = document.getElementById('weight2');
 const dropdown = document.getElementById('myUL');
 const search = document.getElementById('search');
 const changeOne = document.getElementById('changePlayer1');
@@ -83,10 +77,6 @@ $.ajax({
         bar2Data.data.datasets[0].data = [team.ppg.avg, team.oppg.avg];
         bar3Data.data.datasets[0].data = [team.eff.avg];
         radarData.data.datasets[0].data = [team.ppg.avg, team.trpg.avg, team.bpg.avg, team.spg.avg, team.apg.avg];
-        barChart = new Chart(barCTX, barData);
-        bar2Chart = new Chart(bar2CTX, bar2Data);
-        bar3Chart = new Chart(bar3CTX, bar3Data);
-        radarChart = new Chart(radarCTX, radarData);
         createTable(team, 0, 'Los Angeles Clippers');
     },
     error: function (error) {
@@ -109,10 +99,10 @@ $.ajax({
         bar2Data.data.datasets[1].data = [team.ppg.avg, team.oppg.avg];
         bar3Data.data.datasets[1].data = [team.eff.avg];
         radarData.data.datasets[1].data = [team.ppg.avg, team.trpg.avg, team.bpg.avg, team.spg.avg, team.apg.avg];
-        barChart.update();
-        bar2Chart.update();
-        bar3Chart.update();
-        radarChart.update();
+        barChart = new Chart(barCTX, barData);
+        bar2Chart = new Chart(bar2CTX, bar2Data);
+        bar3Chart = new Chart(bar3CTX, bar3Data);
+        radarChart = new Chart(radarCTX, radarData);
         createTable(team, 1, 'Los Angeles Lakers');
     },
     error: function (error) {
@@ -187,6 +177,7 @@ function changePlayer(event) {
     } else if (event.currentTarget.id === 'changePlayer1') {
         currentPlayer = 0;
     }
+    document.getElementById("myUL").className = "show";
     console.log(currentPlayer);
 }
 

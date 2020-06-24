@@ -161,7 +161,7 @@ const radarData = {
       data: [],
       pointHoverRadius: 10,
       pointHoverBackgroundColor: "rgba(200,0,0,0.5)",
-      lineTension: 0.5
+      // lineTension: 0.5
     }
       ,
     {
