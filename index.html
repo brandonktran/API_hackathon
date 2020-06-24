@@ -12,15 +12,15 @@
 <body>
   <div id="heading">
     <h1>Ballify</h1>
-    <button>Compare Players</button>
-    <button><a href="generateTeamData/team.html">Compare Teams</a></button>
-    <label for="season">Season:</label>
+    <button class="btn black margin-t">Compare Players</button>
+    <button class="btn black margin-t"><a href="generateTeamData/team.html">Compare Teams</a></button>
+    <label for="season" id="labelSeason">Season:</label>
     <select name="season" id="season">
     </select>
     <div class="dropdown">
       <div id="myDropdown" class="dropdown-content">
         <input type="text" id="searchInput" placeholder="Search for a player.." onclick="searchForPlayer()">
-        <button id="search">Search</button>
+        <button id="search" class="btn black">Search</button>
         <ul id="myUL" class="noshow">
         </ul>
       </div>
@@ -30,36 +30,41 @@
   <br>
   <div class="container">
     <div class="row topRow">
-      <div class="col card" data-aos="flip-left" data-aos-duration="1000">
+      <div class="col card1" data-aos="flip-left" data-aos-duration="1000">
         <div class="wrapper">
-          <div class="container2">
-            <div class="img-container">
-              <img id="img1" src="https://nba-players.herokuapp.com/players/curry/stephen" alt="">
+          <div class="card1">
+            <div class="front">
+              <div class="container2">
+                <div class="img-container">
+                  <img id="img1" src="https://nba-players.herokuapp.com/players/curry/stephen" alt="">
+                </div>
+                <div class="content">
+                  <div class="head">
+                    <p id="player1Name">Stephen Curry</p>
+                  </div>
+                  <button id="changePlayer1" class="btn black margin-b">Change Player</button>
+                  <div class="data">
+                    <div class="inner-data">
+                      <p>Position</p>
+                      <span id="position1">G</span>
+                    </div>
+                    <div class="inner-data">
+                      <p>Team</p>
+                      <span id="team1">Golden State Warriors</span>
+                    </div>
+                    <div class="inner-data">
+                      <p>Height</p>
+                      <span id="height1">6 feet 3 inches</span>
+                    </div>
+                    <div class="inner-data">
+                      <p>Weight</p>
+                      <span id="weight1">190 lbs</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div class="content">
-              <div class="head">
-                <p id="player1Name">Stephen Curry</p>
-              </div>
-              <button id="changePlayer1">Change Player</button>
-              <div class="data">
-                <div class="inner-data">
-                  <p>Position</p>
-                  <span id="position1">G</span>
-                </div>
-                <div class="inner-data">
-                  <p>Team</p>
-                  <span id="team1">Golden State Warriors</span>
-                </div>
-                <div class="inner-data">
-                  <p>Height</p>
-                  <span id="height1">6 feet 3 inches</span>
-                </div>
-                <div class="inner-data">
-                  <p>Weight</p>
-                  <span id="weight1">190 lbs</span>
-                </div>
-              </div>
+            <div class="back">
             </div>
           </div>
         </div>
@@ -67,34 +72,42 @@
       <div class="col chart-container radar" data-aos="flip-left" data-aos-duration="1000" style="height:300px">
         <canvas id="radar" style="height:300px; width:500px"></canvas>
       </div>
-      <div class="col card" data-aos="flip-left" data-aos-duration="1000">
-        <div class="container2">
-          <div class="img-container">
-            <img id="img2" src="https://nba-players.herokuapp.com/players/james/lebron" alt="">
-          </div>
+      <div class="col card2" data-aos="flip-left" data-aos-duration="1000">
+        <div class="wrapper">
+          <div class="card2">
+            <div class="front">
+              <div class="container2">
+                <div class="img-container">
+                  <img id="img2" src="https://nba-players.herokuapp.com/players/james/lebron" alt="">
+                </div>
 
-          <div class="content">
-            <div class="head">
-              <p id="player2Name">Lebron James</p>
+                <div class="content">
+                  <div class="head">
+                    <p id="player2Name">Lebron James</p>
+                  </div>
+                  <button id="changePlayer2" class="btn black margin-b">Change Player</button>
+                  <div class="data">
+                    <div class="inner-data">
+                      <p>Position</p>
+                      <span id="position2">F</span>
+                    </div>
+                    <div class="inner-data">
+                      <p>Team</p>
+                      <span id="team2">Los Angeles Lakers</span>
+                    </div>
+                    <div class="inner-data">
+                      <p>Height</p>
+                      <span id="height2">6 feet 8 inches</span>
+                    </div>
+                    <div class="inner-data">
+                      <p>Weight</p>
+                      <span id="weight2">250 lbs</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <button id="changePlayer2">Change Player</button>
-            <div class="data">
-              <div class="inner-data">
-                <p>Position</p>
-                <span id="position2">F</span>
-              </div>
-              <div class="inner-data">
-                <p>Team</p>
-                <span id="team2">Los Angeles Lakers</span>
-              </div>
-              <div class="inner-data">
-                <p>Height</p>
-                <span id="height2">6 feet 8 inches</span>
-              </div>
-              <div class="inner-data">
-                <p>Weight</p>
-                <span id="weight2">250 lbs</span>
-              </div>
+            <div class="back">
             </div>
           </div>
         </div>
@@ -112,9 +125,9 @@
       </div>
     </div>
     <div class="row">
-      <div class="col chart-container" data-aos="zoom-in-up" data-aos-duration="1000" style="height:300px;">
+      <div class="col chart-container linegraph" data-aos="zoom-in-up" data-aos-duration="1000" style="height:300px;">
         <label for="cars">Choose a stat:</label>
-        <select name="stats" id="stats" onchange="updateLineChart()">
+        <select name="stats" id="stats" class="cd-select" onchange="updateLineChart()">
           <option value="pts">Points</option>
           <option value="ast">Assists</option>
           <option value="reb">Rebounds</option>
@@ -126,6 +139,7 @@
       </div>
       <div class="col" data-aos="zoom-in-up" data-aos-duration="1000">
         <table>
+          <caption>Season Averages</caption>
           <thead>
             <tr>
               <th></th>

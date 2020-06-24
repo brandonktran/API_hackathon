@@ -184,19 +184,19 @@ const radarData = {
     labels: ["PPG", "RPG", "BPG", "SPG", "APG"],
     datasets: [{
       label: currSeason + ' ' + "Stephen Curry",
-      backgroundColor: "rgba(200,0,0,0.5)",
+      backgroundColor: "rgb(222, 66, 91, 0.8)",
       data: [],
       pointHoverRadius: 10,
-      pointHoverBackgroundColor: "rgba(200,0,0,0.8)",
+      pointHoverBackgroundColor: "rgb(222, 66, 91)",
       // lineTension: 0.5
     }
       ,
     {
       label: currSeason + ' ' + "Lebron James",
-      backgroundColor: "rgba(0,0,200,0.5)",
+      backgroundColor: "rgb(72, 143, 49, 0.8)",
       data: [],
       pointHoverRadius: 10,
-      pointHoverBackgroundColor: "rgba(0,0,200,0.8)"
+      pointHoverBackgroundColor: "rgb(72, 143, 49)"
     }
     ]
   },

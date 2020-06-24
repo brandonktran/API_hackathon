@@ -183,19 +183,19 @@ const radarData = {
         labels: ["PPG", "RPG", "BPG", "SPG", "APG"],
         datasets: [{
             label: currSeason + ' ' + "Los Angeles Clippers",
-            backgroundColor: "rgba(200,0,0,0.8)",
+            backgroundColor: "rgb(222, 66, 91, 0.8)",
             data: [],
             pointHoverRadius: 10,
-            pointHoverBackgroundColor: "rgba(200,0,0)",
+            pointHoverBackgroundColor: "rgb(222, 66, 91)",
             lineTension: 0.8
         }
             ,
         {
             label: currSeason + ' ' + "Los Angeles Lakers",
-            backgroundColor: "rgba(0,0,200,0.8)",
+            backgroundColor: "rgb(72, 143, 49, 0.8)",
             data: [],
             pointHoverRadius: 10,
-            pointHoverBackgroundColor: "rgba(0,0,200)"
+            pointHoverBackgroundColor: "rgb(72, 143, 49)"
         }
         ]
     },

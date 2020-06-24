@@ -11,7 +11,9 @@ body {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 80px;
+  padding: 10px 5px 10px 30px;
+  margin-right: 40px;
 }
 
 .container2{
@@ -43,12 +45,9 @@ h1 {
   box-sizing: border-box;
 }
 
-.head{
-  padding-bottom: 30px;
-}
 
 .head p{
-  font-size: 28px;
+  font-size: 30px;
   color: white;
   font-weight: 600;
 }
@@ -63,7 +62,8 @@ h1 {
   width: 50%;
   float: left;
   text-align: left;
-  color: #aaabaf;
+  color: white;
+  padding-bottom: 10px;
 }
 
 .inner-data p{
@@ -85,7 +85,7 @@ h1 {
   background: #1DA1F2;
   padding: 6px 15px;
   border-radius: 50px;
-  color: #fff;
+  color: white;
   font-weight: 600;
   opacity: 0;
   transition: all 1s ease;
@@ -98,7 +98,6 @@ h1 {
 
 
 .dropbtn {
-  background-color: #4CAF50;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -177,7 +176,8 @@ h1 {
 #heading {
   width:100%;
   display: flex;
-  background-color: rgb(46, 46, 46);
+  border-bottom: 2px white solid;
+  background-color: rgb(26, 25, 25);
   margin-bottom: 2%;
   position: fixed;
   z-index:1;
@@ -186,7 +186,7 @@ h1 {
 }
 
 .topRow {
-  padding-top: 90px;
+  padding-top: 120px;
 }
 
 /* #heading {
@@ -203,13 +203,29 @@ button, select, input, #myUL {
   color: white;
 }
 
+#myUL {
+  margin-left: 2px;
+  width: 152px;
+  padding-top: 5px;
+}
+
+button {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 #searchInput {
+  /* position: fixed; */
   height: 40px;
   width: 150px;
   color: white;
 }
 
 #search {
+  /* position: fixed; */
   display: inline-block;
   height: 40px;
 }
@@ -232,9 +248,163 @@ img {
 }
 .img-container {
   height: 200px;
+  background-color: white;
 }
 .container2 {
   height: 300px;
   color: white;
   background-color: rgb(75, 75, 75);
+}
+
+ .btn {
+  /* width: 40px; */
+  height: 40px;
+  /* padding: 1em 2.1em 1.1em; */
+  border-radius: 3px;
+  margin-left: 20px;
+  color: white;
+  background-color: white;
+  background: rgb(75, 75, 75);
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: 800;
+  font-size: .85em;
+  /* text-transform: uppercase; */
+  text-align: center;
+  text-decoration: none;
+  /* -webkit-box-shadow: 0em -0.3rem 0em rgb(75, 75, 75) inset;
+  -moz-box-shadow: 0em -0.3rem 0em rgb(75, 75, 75) inset;
+  box-shadow: 0em -0.3rem 0em rgb(75, 75, 75) inset; */
+  position: relative;
+  opacity: 0.8;
+}
+.btn:hover, .btn:focus {
+    opacity: 0.6;
+}
+.btn:active {
+    -webkit-transform: scale(0.90);
+    -moz-transform: scale(0.90);
+    -ms-transform: scale(0.90);
+    -o-transform: scale(0.90);
+    transform: scale(0.90);
+}
+
+.margin-b {
+  margin-bottom: 20px;
+  margin-left: 0px;
+}
+
+.margin-t {
+  margin-top: 30px;
+}
+
+#labelSeason {
+  font-size: 22px;
+  margin-top: 44px;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+
+
+#season {
+  height: 40px;
+  margin-top: 35px;
+}
+
+#myDropdown {
+  margin-top: 15px;
+  margin-left: 20px;
+  width: 600px;
+  height:200px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#myDropdown::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+#myDropdown {
+  -ms-overflow-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  /* margin-left: 30px; */
+  width: 100%;
+}
+
+caption {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+th, td {
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-right: 6px;
+  padding-left: 2px;
+  text-align: left;
+  border-bottom: 1px solid white;
+}
+
+tr:hover {background-color:rgb(75, 75, 75);}
+
+.linegraph {
+  margin-left: 100px;
+}
+
+.wrapper {
+    /* width: 200px;
+    height: 260px; */
+    /* position: relative; */
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
+}
+.card1 {
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+}
+
+
+.card1.flipped {
+    -webkit-transform: rotateY( 360deg );
+    -moz-transform: rotateY( 360deg );
+    -o-transform: rotateY( 360deg );
+    transform: rotateY( 360deg );
+}
+
+.card2 {
+    -webkit-transition: -webkit-transform 1.5s;
+    -moz-transition: -moz-transform 1.5s;
+    -o-transition: -o-transform 1.5s;
+    transition: transform 1.5s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+}
+
+
+.card2.flipped {
+    -webkit-transform: rotateY( 360deg );
+    -moz-transform: rotateY( 360deg );
+    -o-transform: rotateY( 360deg );
+    transform: rotateY( 360deg );
+}
+
+button {
+  color: white
 }
