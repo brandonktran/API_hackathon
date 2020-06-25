@@ -28,7 +28,7 @@ const barData = {
         label: currSeason + ' ' + "Stephen Curry",
         fillColor: "red",
         data: [],
-        backgroundColor: 'rgb(0, 63, 92, 0.8)',
+        backgroundColor: 'rgb(0, 63, 92)',
         borderColor: 'rgb(0, 63, 92)',
         borderWidth: 1,
         hoverBackgroundColor: 'rgb(0, 63, 92, 1)'
@@ -37,7 +37,7 @@ const barData = {
         label: currSeason + ' ' + "Lebron James",
         fillColor: "blue",
         data: [],
-        backgroundColor: 'rgb(255, 166, 0, 0.8)',
+        backgroundColor: 'rgb(255, 166, 0)',
         borderColor: 'rgb(255, 166, 0)',
         borderWidth: 1,
         hoverBackgroundColor: 'rgb(255, 166, 0)'
@@ -90,7 +90,7 @@ const bar2Data = {
         label: currSeason + ' ' + "Stephen Curry",
         fillColor: "red",
         data: [],
-        backgroundColor: 'rgb(221, 81, 130, 0.8)',
+        backgroundColor: 'rgb(221, 81, 130)',
         borderColor: 'rgb(221, 81, 130)',
         borderWidth: 1,
         hoverBackgroundColor: 'rgb(221, 81, 130)'
@@ -99,7 +99,7 @@ const bar2Data = {
         label: currSeason + ' ' + "Lebron James",
         fillColor: "blue",
         data: [],
-        backgroundColor: 'rgb(255, 110, 84, 0.8)',
+        backgroundColor: 'rgb(255, 110, 84)',
         borderColor: 'rgb(255, 110, 84)',
         borderWidth: 1,
         hoverBackgroundColor: 'rgb(255, 110, 84)'
@@ -146,7 +146,7 @@ const bar3Data = {
         label: currSeason + ' ' + "Stephen Curry",
         fillColor: "red",
         data: [],
-        backgroundColor: 'rgb(68, 78, 134, 0.8)',
+        backgroundColor: 'rgb(68, 78, 134)',
         borderColor: 'rgb(68, 78, 134)',
         borderWidth: 1,
         hoverBackgroundColor: 'rgb(68, 78, 134)'
@@ -155,7 +155,7 @@ const bar3Data = {
         label: currSeason + ' ' + "Lebron James",
         fillColor: "blue",
         data: [],
-        backgroundColor: 'rgb(149, 81, 150, 0.8)',
+        backgroundColor: 'rgb(149, 81, 150)',
         borderColor: 'rgb(149, 81, 150)',
         borderWidth: 1,
         hoverBackgroundColor: 'rgb(149, 81, 150)'

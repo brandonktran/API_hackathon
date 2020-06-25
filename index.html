@@ -28,7 +28,8 @@
   </div>
   <hr>
   <br>
-  <div class="container">
+  <div class="container main">
+    <div class="background"></div>
     <div class="row topRow">
       <div class="col card1 wrapper" data-aos="flip-left" data-aos-duration="1000">
         <div class="card1">
@@ -117,8 +118,8 @@
       </div>
     </div>
     <div class="row">
-      <div class="col chart-container linegraph" data-aos="zoom-in-up" data-aos-duration="1000" style="height:300px;">
-        <label for="cars">Choose a stat:</label>
+      <div class="col chart-container linegraph" data-aos="zoom-in-up" data-aos-duration="1000">
+        <label for="stats">Choose a stat:</label>
         <select name="stats" id="stats" class="cd-select">
           <option value="pts">Points</option>
           <option value="ast">Assists</option>
@@ -126,7 +127,6 @@
           <option value="blk">Blocks</option>
           <option value="stl">Steals</option>
         </select>
-        <br><br>
         <canvas id="line1"></canvas>
       </div>
       <div class="col" data-aos="zoom-in-up" data-aos-duration="1000">
