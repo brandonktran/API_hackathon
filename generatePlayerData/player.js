@@ -35,15 +35,10 @@ const team2 = document.getElementById('team2');
 const height2 = document.getElementById('height2');
 const weight2 = document.getElementById('weight2');
 const dropdown = document.getElementById('myUL');
-// const search = document.getElementById('search');
 const changeOne = document.getElementById('changePlayer1');
 changeOne.addEventListener('click', changePlayer);
 const changeTwo = document.getElementById('changePlayer2');
 changeTwo.addEventListener('click', changePlayer);
-// search.addEventListener('click', findPlayer);
-// const season = document.getElementById('season');
-// const searchInput = document.getElementById('searchInput');
-// searchInput.addEventListener('click', searchForPlayer);
 const lineStat = document.getElementById('stats');
 lineStat.addEventListener('change', updateLineChart);
 const body = document.querySelector('body');
@@ -179,6 +174,7 @@ function findPlayer() {
           updateLineChart()
         })
         dropdown.append(button);
+        dropdown.className = "show";
       }
     },
     error: function (error) {
@@ -318,9 +314,9 @@ function getPlayerGameStats(lastPage, id, playerNum, stat) {
 }
 
 
-function searchForPlayer() {
-  document.getElementById("myUL").className = "show";
-}
+// function searchForPlayer() {
+//   document.getElementById("myUL").className = "show";
+// }
 
 
 function updateLineChart() {
@@ -404,7 +400,7 @@ function changePlayer(event) {
   searchInput.id = 'searchInput';
   searchInput.type = 'text';
   searchInput.placeholder = 'Search for a player..'
-  searchInput.addEventListener('click', searchForPlayer);
+  // searchInput.addEventListener('click', searchForPlayer);
   myDropdown.append(searchInput);
   const search = document.createElement('button');
   search.id = 'search';

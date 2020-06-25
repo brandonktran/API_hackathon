@@ -1,8 +1,7 @@
-@font-face {
+/* @font-face {
   font-family: helvetica-condensed;
   src: url(Fonts/helvetica-condensed-black.otf);
-}
-
+} */
 
 @font-face {
   font-family: freeroad;
@@ -22,11 +21,16 @@
 
 body {
   background-color: 	rgb(46, 46, 46);
+  font-family: freeroad;
+  background-image: url(images/backboard.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
 
 h1 {
   font-size: 4.5vw;
-  padding: 10px 5px 10px 30px;
+  padding: 20px 5px 10px 30px;
   margin-right: 1.5vw;
   /* font-family: helvetica-condensed; */
 }
@@ -46,6 +50,8 @@ h1 {
 
 .img-container img{
   width: 100%;
+  padding-top: 4%;
+  padding-left: 4%;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
@@ -63,14 +69,13 @@ h1 {
   font-size: 35px;
   color: white;
   font-weight: bold;
-  font-family: freeroad;
   padding-top: 0;
   margin-top: 0;
 }
 
 
 .data{
-  width: 95%;
+  width: 100%;
 }
 
 
@@ -80,7 +85,6 @@ h1 {
   text-align: left;
   color: white;
   padding-bottom: 10px;
-  font-family: freeroad;
 }
 
 .inner-data p{
@@ -95,7 +99,6 @@ h1 {
 }
 
 .btn{
-  position: absolute;
   top: 10px;
   right: 10px;
   text-transform: uppercase;
@@ -104,7 +107,7 @@ h1 {
   border-radius: 50px;
   color: white;
   font-weight: bold;
-  opacity: 0;
+  opacity: 1;
   transition: all 1s ease;
   cursor: pointer;
 }
@@ -121,22 +124,6 @@ h1 {
   font-weight: bold;
   border: none;
   cursor: pointer;
-}
-
-
-#myInput {
-  box-sizing: border-box;
-  background-image: url('searchicon.png');
-  background-position: 14px 12px;
-  background-repeat: no-repeat;
-  font-size: 16px;
-  padding: 14px 20px 12px 45px;
-  border: none;
-  border-bottom: 1px solid #ddd;
-}
-
-#myInput:focus {
-  outline: 3px solid #ddd;
 }
 
 .dropdown {
@@ -167,11 +154,6 @@ h1 {
 .show {display: block;}
 
 .container {
-
-  background-image: url(backboard2.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
   width:100%;
   display: flex;
   align-items: center;
@@ -200,12 +182,9 @@ h1 {
 
 #heading {
   width:100%;
-  /* background-image: url(basketball.jpg);
-    background-repeat: no-repeat;
-  background-size: 100%; */
   display: flex;
   border-bottom: 2px white solid;
-  background-color: black;
+  background-color: rgb(0, 0, 0, 0.8);
   margin-bottom: 2%;
   position: fixed;
   z-index:1;
@@ -236,16 +215,17 @@ a {
   text-decoration: none;
 }
 
-#searchInput, #searchInput2 {
+#searchInput {
   /* position: fixed; */
   font-size: 11px;
+  margin-bottom:2%;
   height: 30px;
   width: 100px;
   color: black;
   background-color: white;
 }
 
-#search, #search2 {
+#search {
   font-size: 12px;
 }
 
@@ -271,13 +251,10 @@ img {
 }
 
  .btn {
-  /* width: 40px; */
   height: 40px;
-  /* padding: 1em 2.1em 1.1em; */
   border-radius: 3px;
   margin-left: 20px;
   color: white;
-  background-color: white;
   background: rgb(75, 75, 75);
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -285,14 +262,10 @@ img {
   transition: 0.3s;
   font-weight: 800;
   font-size: .85em;
-  /* text-transform: uppercase; */
   text-align: center;
   text-decoration: none;
-  /* -webkit-box-shadow: 0em -0.3rem 0em rgb(75, 75, 75) inset;
-  -moz-box-shadow: 0em -0.3rem 0em rgb(75, 75, 75) inset;
-  box-shadow: 0em -0.3rem 0em rgb(75, 75, 75) inset; */
   position: relative;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .btn:hover, .btn:focus {
     opacity: 0.6;
@@ -323,15 +296,8 @@ img {
 
 #labelSeason {
   font-size: 18px;
-  /* margin-top: 44px;
-  margin-right: 10px;
-  margin-left: 30px; */
-}
-
-
-#season {
-  /* height: 40px; */
-  /* margin-top: 35px; */
+  margin-left: 30px;
+  margin-right: 5px
 }
 
 #myUL {
@@ -369,11 +335,8 @@ img {
 
 table {
   border-collapse: collapse;
-  /* margin-left: 30px; */
   width: 100%;
-  font-family: freeroad;
   font-weight: bold;
-  /* background-color: rgb(48, 47, 47); */
 }
 
 caption {
@@ -443,6 +406,18 @@ tr:hover {background-color:rgb(75, 75, 75);}
     transform: rotateY( 360deg );
 }
 
+#stats, #labelStats {
+  position: absolute;
+  right: 3%;
+  top: 5%;
+}
+
+#labelStats {
+  font-size: 20px;
+  right: 21%;
+  top: 5%;
+}
+
 
 button {
     outline: none;
@@ -465,23 +440,22 @@ button {
 }
 
 .chart-container {
-  background-color: rgb(0, 0, 0, 0.8);
+  background-color: rgb(0, 0, 0, 0.9);
   border-radius: 2%;
   padding-right: 0.8%;
   padding-bottom: 0.5%;
 }
 
 .chart-container:hover {
-  background-color: rgb(0, 0, 0, 0.9);
+  background-color: rgb(0, 0, 0, 1);
 }
 
 .radar {
-  padding-bottom: 3%;
-  font-family: freeroad;
+  padding-bottom: 3.5%;
 }
 
 .container2 {
-  background-image: url(logo3.jpg);
+  background-image: url(images/logo.jpg);
   background-size: 100% 100%;
   background-position: center;
   padding-left:0;
@@ -493,3 +467,5 @@ button {
     flex-basis: 100%;
   }
 }
+
+/* add metaviewport tag */
