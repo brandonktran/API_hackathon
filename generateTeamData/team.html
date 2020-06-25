@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="../styles.css">
-    <title>Ballify</title>
+    <title>App Name</title>
 </head>
 
 <body>
     <div id="heading">
-        <h1>Ballify</h1>
+        <h1>App Name</h1>
         <button class="btn black margin-t"><a href="../index.html">Compare Players</a></button>
         <button class="btn black margin-t">Compare Teams</button>
         <label for="season" id="labelSeason">Season:</label>
@@ -19,8 +19,7 @@
         </select>
         <div class="dropdown">
             <div id="myDropdown" class="dropdown-content">
-                <input type="text" id="searchInput" placeholder="Search for a team.." onclick="searchForPlayer()"
-                    onkeyup="filterFunction()">
+                <input type="text" id="searchInput" placeholder="Search for a team..">
                 <ul id="myUL" class="noshow">
                 </ul>
             </div>
@@ -30,90 +29,66 @@
     <br>
     <div class="container">
         <div class="row topRow">
-            <div class="col card1" data-aos="flip-left" data-aos-duration="1000">
-                <div class="wrapper">
-                    <div class="card1">
-                        <div class="front">
-                            <div class="container2">
-                                <div class="img-container">
-                                    <img id="img1"
-                                        src="http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/lac.png"
-                                        alt="">
-                                </div>
+            <div class="col card1 wrapper" data-aos="flip-left" data-aos-duration="1000">
+                <div class="card1">
+                    <div class="front container2">
+                        <div class="img-container">
+                            <img id="img1"
+                                src="http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/lac.png"
+                                alt="">
+                        </div>
 
-                                <div class="content">
-                                    <div class="head">
-                                        <p id="player1Name">Los Angeles Clippers</p>
-                                    </div>
-                                    <button id="changePlayer1" class="btn black margin-b">Change Team</button>
-                                    <div class="data">
-                                    </div>
-                                </div>
+                        <div class="content">
+                            <div class="head">
+                                <p id="player1Name">Los Angeles Clippers</p>
+                            </div>
+                            <button id="changePlayer1" class="btn black margin-b">Change Team</button>
+                            <div class="data">
                             </div>
                         </div>
-                        <div class="back">
-                        </div>
+                    </div>
+                    <div class="back">
                     </div>
                 </div>
             </div>
-            <div class="col chart-container radar" data-aos="flip-left" data-aos-duration="1000" style="height:300px">
-                <canvas id="radar" style="height:300px; width:500px"></canvas>
+            <div class="col chart-container radar" data-aos="flip-left" data-aos-duration="1000">
+                <canvas id="radar"></canvas>
             </div>
-            <div class="col card2" data-aos="flip-left" data-aos-duration="1000">
-                <div class="wrapper">
-                    <div class="card2">
-                        <div class="front">
-                            <div class="container2">
-                                <div class="img-container">
-                                    <img id="img2"
-                                        src="http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/lal.png"
-                                        alt="">
-                                </div>
+            <div class="col card2 wrapper" data-aos="flip-left" data-aos-duration="1000">
+                <div class="card2">
+                    <div class="front container2">
+                        <div class="img-container">
+                            <img id="img2"
+                                src="http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/lal.png"
+                                alt="">
+                        </div>
 
-                                <div class="content">
-                                    <div class="head">
-                                        <p id="player2Name">Los Angeles Lakers</p>
-                                    </div>
-                                    <button id="changePlayer2" class="btn black margin-b">Change Team</button>
-                                    <div class="data">
-                                        <!-- <div class="inner-data">
-                                                                    <p>Position</p>
-                                                                    <span id="position2">F</span>
-                                                                </div> -->
-                                    </div>
-                                </div>
+                        <div class="content">
+                            <div class="head">
+                                <p id="player2Name">Los Angeles Lakers</p>
+                            </div>
+                            <button id="changePlayer2" class="btn black margin-b">Change Team</button>
+                            <div class="data">
                             </div>
                         </div>
-                        <div class="back">
-                        </div>
+                    </div>
+                    <div class="back">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col chart-container" data-aos="fade-right" data-aos-duration="1000" style="height:300px;">
-                <canvas id="bar1" style="height:300px; width:500px"></canvas>
+            <div class="col chart-container bar" data-aos="fade-right" data-aos-duration="1000">
+                <canvas id="bar1" class="barChart"></canvas>
             </div>
-            <div class="col chart-container" data-aos="fade-down" data-aos-duration="1000" style="height:300px;">
-                <canvas id="bar2" style="height:300px; width:500px"></canvas>
+            <div class="col chart-container bar" data-aos="fade-down" data-aos-duration="1000">
+                <canvas id="bar2" class="barChart"></canvas>
             </div>
-            <div class="chart-container" data-aos="fade-left" data-aos-duration="1000" style="height:300px">
-                <canvas id="bar3" style="height:300px; width:500px"></canvas>
+            <div class="chart-container bar" data-aos="fade-left" data-aos-duration="1000">
+                <canvas id="bar3" class="barChart"></canvas>
             </div>
         </div>
         <div class="row">
-            <!-- <div class="col chart-container" data-aos="zoom-in-up" data-aos-duration="1000" style="height:300px;">
-                <label for="cars">Choose a stat:</label>
-                <select name="stats" id="stats" onchange="updateLineChart()">
-                    <option value="pts">Points</option>
-                    <option value="ast">Assists</option>
-                    <option value="reb">Rebounds</option>
-                    <option value="blk">Blocks</option>
-                    <option value="stl">Steals</option>
-                </select>
-                <br><br>
-                <canvas id="line1" style="height:300px; width:500px"></canvas>
-            </div> -->
             <div class="col" data-aos="zoom-in-up" data-aos-duration="1000">
                 <table>
                     <thead>

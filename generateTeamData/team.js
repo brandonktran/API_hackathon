@@ -58,13 +58,18 @@ const changeOne = document.getElementById('changePlayer1');
 changeOne.addEventListener('click', changePlayer);
 const changeTwo = document.getElementById('changePlayer2');
 changeTwo.addEventListener('click', changePlayer);
-// search.addEventListener('click', findPlayer);
 const season = document.getElementById('season');
-
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('click', searchForPlayer);
+searchInput.addEventListener('keyup', filterFunction)
+const body = document.querySelector('body');
 
 $.ajax({
     url: 'https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2019/team_stats_rankings.json',
     type: 'GET',
+    beforeSend: function () {
+        body.style.cursor = 'wait';
+    },
     success: function (data) {
         let team = data.league.standard.regularSeason.teams
         for (let i = 0; i < team.length; i++) {
@@ -81,12 +86,18 @@ $.ajax({
     },
     error: function (error) {
         console.log(error);
+    },
+    complete: function () {
+        body.style.cursor = 'default';
     }
 });
 
 $.ajax({
     url: 'https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2019/team_stats_rankings.json',
     type: 'GET',
+    beforeSend: function () {
+        body.style.cursor = 'wait';
+    },
     success: function (data) {
         let team = data.league.standard.regularSeason.teams
         for (let i = 0; i < team.length; i++) {
@@ -107,6 +118,9 @@ $.ajax({
     },
     error: function (error) {
         console.log(error);
+    },
+    complete: function () {
+        body.style.cursor = 'default';
     }
 });
 
@@ -120,6 +134,9 @@ function getPlayerStats(player, playerNum) {
     $.ajax({
         url: `https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/${season.value}/team_stats_rankings.json`,
         type: 'GET',
+        beforeSend: function () {
+            body.style.cursor = 'wait';
+        },
         success: function (data) {
             let team = data.league.standard.regularSeason.teams
             for (let i = 0; i < team.length; i++) {
@@ -167,6 +184,9 @@ function getPlayerStats(player, playerNum) {
         },
         error: function (error) {
             console.log(error);
+        },
+        complete: function () {
+            body.style.cursor = 'default';
         }
     });
 }
