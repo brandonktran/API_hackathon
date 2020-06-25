@@ -35,15 +35,15 @@ const team2 = document.getElementById('team2');
 const height2 = document.getElementById('height2');
 const weight2 = document.getElementById('weight2');
 const dropdown = document.getElementById('myUL');
-const search = document.getElementById('search');
+// const search = document.getElementById('search');
 const changeOne = document.getElementById('changePlayer1');
 changeOne.addEventListener('click', changePlayer);
 const changeTwo = document.getElementById('changePlayer2');
 changeTwo.addEventListener('click', changePlayer);
-search.addEventListener('click', findPlayer);
-const season = document.getElementById('season');
-const searchInput = document.getElementById('searchInput');
-searchInput.addEventListener('click', searchForPlayer);
+// search.addEventListener('click', findPlayer);
+// const season = document.getElementById('season');
+// const searchInput = document.getElementById('searchInput');
+// searchInput.addEventListener('click', searchForPlayer);
 const lineStat = document.getElementById('stats');
 lineStat.addEventListener('change', updateLineChart);
 const body = document.querySelector('body');
@@ -131,6 +131,7 @@ $.ajax({
 
 
 function findPlayer() {
+  const dropdown = document.getElementById('myUL');
   dropdown.innerHTML = '';
   $.ajax({
     url: 'https://www.balldontlie.io/api/v1/players',
@@ -179,7 +180,6 @@ function findPlayer() {
         })
         dropdown.append(button);
       }
-      console.log(data);
     },
     error: function (error) {
       console.log(error);
@@ -193,6 +193,7 @@ function findPlayer() {
 
 
 function getPlayerStats(player, playerNum, team) {
+  const season = document.getElementById('season');
   document.getElementById("myUL").innerHTML = '';
   document.getElementById("myUL").className = "noshow";
   $.ajax({
@@ -206,6 +207,7 @@ function getPlayerStats(player, playerNum, team) {
       body.style.cursor = 'wait';
     },
     success: function (data) {
+      console.log('hi')
       console.log(data);
       // console.log(data.data[0].season);
       console.log(player)
@@ -219,8 +221,14 @@ function getPlayerStats(player, playerNum, team) {
       bar2Chart.update();
       bar3Chart.update();
       radarChart.update();
-      document.getElementById(`player${currentPlayer + 1}Name`).textContent = player.textContent;
+      document.getElementById(`firstname${currentPlayer + 1}`).textContent = firstName.toUpperCase();
+      document.getElementById(`lastname${currentPlayer + 1}`).textContent = lastName.toUpperCase();
       flip();
+      const searchMenu = document.getElementById(`searchMenu${currentPlayer + 1}`);
+      searchMenu.innerHTML = '';
+      const playerbutton = document.getElementById(`changePlayer${currentPlayer + 1}`);
+      playerbutton.style.display = '';
+      searchMenu.classList.add('noshow');
       if (data.data.length === 0) {
         console.log('no player data for this season');
         barData.data.datasets[playerNum].data = [];
@@ -366,15 +374,60 @@ function updateLineChart() {
 function changePlayer(event) {
   if (event.currentTarget.id === 'changePlayer2') {
     currentPlayer = 1;
+    const searchMenu = document.getElementById(`searchMenu1`);
+    searchMenu.innerHTML = '';
+    const playerbutton = document.getElementById(`changePlayer1`);
+    playerbutton.style.display = '';
+    searchMenu.classList.add('noshow');
   } else if (event.currentTarget.id === 'changePlayer1') {
     currentPlayer = 0;
+    const searchMenu = document.getElementById(`searchMenu2`);
+    searchMenu.innerHTML = '';
+    const playerbutton = document.getElementById(`changePlayer2`);
+    playerbutton.style.display = '';
+    searchMenu.classList.add('noshow');
   }
-  dropdown.innerHTML = '';
-  const item = document.createElement('li');
-  item.textContent = 'Search for a Player Above'
-  dropdown.append(item);
-  dropdown.className = "show";
+  const searchMenu = document.getElementById(`searchMenu${currentPlayer + 1}`)
+  searchMenu.innerHTML = '';
+  // const item = document.createElement('li');
+  // item.textContent = 'Search for a Player Above'
+  // dropdown.append(item);
+  // dropdown.className = "show";
   console.log(currentPlayer);
+  const dropdown = document.createElement('div');
+  dropdown.className = 'dropdown';
+  const myDropdown = document.createElement('div');
+  myDropdown.className = 'dropdown-content';
+  myDropdown.id = 'myDropdown';
+  dropdown.append(myDropdown);
+  const searchInput = document.createElement('input');
+  searchInput.id = 'searchInput';
+  searchInput.type = 'text';
+  searchInput.placeholder = 'Search for a player..'
+  searchInput.addEventListener('click', searchForPlayer);
+  myDropdown.append(searchInput);
+  const search = document.createElement('button');
+  search.id = 'search';
+  search.className = 'btn black';
+  search.textContent = 'Search';
+  search.addEventListener('click', findPlayer);
+  myDropdown.append(search);
+  const myUL = document.createElement('ul');
+  myUL.id = 'myUL'
+  myUL.className = 'noshow';
+  myDropdown.append(myUL);
+  const labelSeason = document.createElement('label');
+  labelSeason.id = 'labelSeason';
+  labelSeason.textContent = 'Season:'
+  dropdown.append(labelSeason);
+  const season = document.createElement('select');
+  season.id = 'season';
+  dropdown.append(season);
+  searchMenu.append(dropdown);
+  createSeasonDropdown(season)
+  const playerbutton = document.getElementById(`changePlayer${currentPlayer + 1}`);
+  playerbutton.style.display = 'none';
+  searchMenu.classList.remove('noshow');
 }
 
 
@@ -406,8 +459,7 @@ function createTable(data, currentPlayer, index, name) {
 }
 
 
-function createSeasonDropdown() {
-  const dropdown = document.getElementById('season');
+function createSeasonDropdown(season) {
   for (let i = lastSeason; i > 0; i--) {
     const elem = document.createElement('option');
     if (i.length < 2) {
@@ -416,7 +468,7 @@ function createSeasonDropdown() {
       elem.value = elem.value = '20' + i;
     }
     elem.textContent = `'${i}` + `-'${i + 1}`;
-    dropdown.append(elem);
+    season.append(elem);
   }
 }
 
@@ -428,52 +480,3 @@ function flip() {
   }
 
 }
-createSeasonDropdown()
-
-// $.ajax({
-//   url: 'https://www.balldontlie.io/api/v1/season_averages',
-//   type: 'GET',
-//   data: {
-//     'player_ids': [115],
-//     'season': 2014
-//   },
-//   success: function (data) {
-//     console.log(data);
-//   },
-//   error: function (error) {
-//     console.log(error);
-//   }
-// });
-
-// $.ajax({
-//   url: "https://www.balldontlie.io/api/v1/stats",
-//   type: 'GET',
-//   data: {
-//     'player_ids': [14],
-//     'per_page': 10
-//   },
-//   success: function (data) {
-//     console.log(data)
-//   },
-//   error: function (error) {
-//     console.log(error);
-//   }
-// });
-
-
-// $.ajax({
-//   url: 'https://www.balldontlie.io/api/v1/players',
-//   type: 'GET',
-//   data: {
-//     'search': 'lebron james',
-//     'per_page': 100
-//   },
-//   success: function (data) {
-//     console.log(data);
-//   },
-//   error: function (error) {
-//     console.log(error);
-//   }
-// });
-
-// data.data.height_feet height_inches position team.full_name weight_pounds

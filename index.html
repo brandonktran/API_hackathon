@@ -14,7 +14,7 @@
     <h1>App Name</h1>
     <button class="btn black margin-t">Compare Players</button>
     <button class="btn black margin-t"><a href="generateTeamData/team.html">Compare Teams</a></button>
-    <label for="season" id="labelSeason">Season:</label>
+    <!-- <label for="season" id="labelSeason">Season:</label>
     <select name="season" id="season">
     </select>
     <div class="dropdown">
@@ -24,7 +24,7 @@
         <ul id="myUL" class="noshow">
         </ul>
       </div>
-    </div>
+    </div> -->
   </div>
   <hr>
   <br>
@@ -39,9 +39,12 @@
             </div>
             <div class="content">
               <div class="head">
-                <p id="player1Name">Stephen Curry</p>
+                <p id="player1Name"><span id="firstname1">STEPHEN</span> <br> <span id="lastname1">CURRY</span>
+                </p>
               </div>
               <button id="changePlayer1" class="btn black margin-b">Change Player</button>
+              <div class="row noshow" id="searchMenu1">
+              </div>
               <div class="data">
                 <div class="inner-data">
                   <p>Position</p>
@@ -78,9 +81,11 @@
 
             <div class="content">
               <div class="head">
-                <p id="player2Name">Lebron James</p>
+                <p id="player2Name"><span id="firstname2">LEBRON</span> <br> <span id="lastname2">JAMES</span></p>
               </div>
               <button id="changePlayer2" class="btn black margin-b">Change Player</button>
+              <div class="row noshow" id="searchMenu2">
+              </div>
               <div class="data">
                 <div class="inner-data">
                   <p>Position</p>

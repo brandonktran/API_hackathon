@@ -1,7 +1,8 @@
 const currSeason = 2019
 const colorGrid = 'white';
 Chart.defaults.global.defaultFontColor = 'white';
-Chart.defaults.global.defaultFontSize = 18;
+Chart.defaults.global.defaultFontSize = 20;
+Chart.defaults.global.defaultFontFamily = 'freeroad';
 const radarSize = document.getElementById('radar');
 radarSize.width = radarSize.parentNode.clientWidth;
 radarSize.height = radarSize.parentNode.clientHeight;
@@ -53,6 +54,7 @@ const barData = {
             // }
         },
         title: {
+            fontSize: 24,
             display: true,
             text: 'Shooting Percentage Averages'
         },
@@ -109,6 +111,7 @@ const bar2Data = {
         },
         legend: { display: true },
         title: {
+            fontSize: 24,
             display: true,
             text: 'Points Per Game'
         },
@@ -165,6 +168,7 @@ const bar3Data = {
         },
         legend: { display: true },
         title: {
+            fontSize: 24,
             display: true,
             text: 'Efficiency'
         },
@@ -221,7 +225,7 @@ const radarData = {
                 color: colorGrid
             },
             pointLabels: {
-                fontSize: 15
+                fontSize: 20
             },
             angleLines: {
                 color: colorGrid

@@ -1,7 +1,8 @@
 const currSeason = 2019;
 const colorGrid = 'white';
 Chart.defaults.global.defaultFontColor = 'white';
-Chart.defaults.global.defaultFontSize = 18;
+Chart.defaults.global.defaultFontSize = 20;
+Chart.defaults.global.defaultFontFamily = 'freeroad';
 const radarSize = document.getElementById('radar');
 radarSize.width = radarSize.parentNode.clientWidth;
 radarSize.height = radarSize.parentNode.clientHeight;
@@ -57,6 +58,7 @@ const barData = {
       // }
     },
     title: {
+      fontSize: 24,
       display: true,
       text: 'Field Goals Made Per Game'
     },
@@ -74,7 +76,6 @@ const barData = {
           beginAtZero: true,
           // max: 30,
           // min: 0,
-          // stepSize: 5
         }
       }]
     }
@@ -113,6 +114,7 @@ const bar2Data = {
     },
     legend: { display: true },
     title: {
+      fontSize: 24,
       display: true,
       text: 'Field Goal Attempts Per Game'
     },
@@ -169,6 +171,7 @@ const bar3Data = {
     },
     legend: { display: true },
     title: {
+      fontSize: 24,
       display: true,
       text: 'Field Goal Percentage %'
     },
@@ -225,7 +228,7 @@ const radarData = {
         color: colorGrid
       },
       pointLabels: {
-        fontSize: 15
+        fontSize: 18
       },
       angleLines: {
         color: colorGrid
@@ -268,6 +271,7 @@ const line1data = {
       easing: 'linear'
     },
     title: {
+      fontSize: 24,
       display: true,
       text: 'Last 10 Games'
     },

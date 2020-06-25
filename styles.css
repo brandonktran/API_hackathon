@@ -1,13 +1,26 @@
+@font-face {
+  font-family: rundschrift;
+  src: url(Fonts/DIN-Rundschrift-FontZillion/Fonts/dinrundschrifteng.otf);
+}
+
+@font-face {
+  font-family: freeroad;
+  src: url(Fonts/FreeRoad/freeroadregular.ttf);
+}
+
+@font-face {
+  font-family: freeroad-bold;
+  src: url(Fonts/FreeRoad/freeroadbold.ttf);
+}
+
 *{
   margin: 0;
   padding: 0;
-  /* color: rgb(211, 126, 116); */
   color: white;
 }
 
 body {
   background-color: 	rgb(46, 46, 46);
-  /* background-color: rgb(244, 244, 244); */
 }
 
 h1 {
@@ -40,21 +53,25 @@ h1 {
   width: 60%;
   height: 100%;
   float: left;
-  padding: 30px 40px;
+  padding: 20px 40px;
   box-sizing: border-box;
 }
 
 
 .head p{
-  font-size: 30px;
+  font-size: 35px;
   color: white;
   font-weight: bold;
+  font-family: freeroad;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 
 .data{
-  width: 90%;
+  width: 95%;
 }
+
 
 .inner-data{
   width: 50%;
@@ -62,6 +79,7 @@ h1 {
   text-align: left;
   color: white;
   padding-bottom: 10px;
+  font-family: freeroad;
 }
 
 .inner-data p{
@@ -81,7 +99,6 @@ h1 {
   right: 10px;
   text-transform: uppercase;
   font-size: 12px;
-  background: #1DA1F2;
   padding: 6px 15px;
   border-radius: 50px;
   color: white;
@@ -105,9 +122,6 @@ h1 {
   cursor: pointer;
 }
 
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
-}
 
 #myInput {
   box-sizing: border-box;
@@ -126,13 +140,13 @@ h1 {
 
 .dropdown {
   margin-top: 1%;
-  position: relative;
-  display: inline-block;
+  /* position: relative; */
+  /* display: inline-block; */
 }
 
 
 .dropdown-content {
-  position: absolute;
+  /* position: absolute; */
   /* background-color: #f6f6f6; */
   min-width: 230px;
   overflow: auto;
@@ -156,11 +170,12 @@ h1 {
   background-image: url(backboard2.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
-    width:100%;
-    display: flex;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
+  background-size: cover;
+  width:100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
 }
 
 
@@ -189,7 +204,7 @@ h1 {
   background-size: 100%; */
   display: flex;
   border-bottom: 2px white solid;
-  background-color: rgb(26, 25, 25);
+  background-color: black;
   margin-bottom: 2%;
   position: fixed;
   z-index:1;
@@ -216,27 +231,21 @@ button, select, input, #myUL {
   cursor: pointer;
 }
 
-#myUL {
-  margin-left: 2px;
-  width: 152px;
-  padding-top: 5px;
-}
-
 a {
   text-decoration: none;
 }
 
-#searchInput {
+#searchInput, #searchInput2 {
   /* position: fixed; */
-  height: 40px;
-  width: 150px;
-  color: white;
+  font-size: 11px;
+  height: 30px;
+  width: 100px;
+  color: black;
+  background-color: white;
 }
 
-#search {
-  /* position: fixed; */
-  display: inline-block;
-  height: 40px;
+#search, #search2 {
+  font-size: 12px;
 }
 
 .radar {
@@ -295,6 +304,13 @@ img {
     transform: scale(0.90);
 }
 
+#search {
+  font-size: 12px;
+  position: static;
+  margin-left: 0px;
+  height: 30px
+}
+
 .margin-b {
   margin-bottom: 20px;
   margin-left: 0px;
@@ -305,23 +321,39 @@ img {
 }
 
 #labelSeason {
-  font-size: 22px;
-  margin-top: 44px;
+  font-size: 18px;
+  /* margin-top: 44px;
   margin-right: 10px;
-  margin-left: 30px;
+  margin-left: 30px; */
 }
 
 
 #season {
-  height: 40px;
-  margin-top: 35px;
+  /* height: 40px; */
+  /* margin-top: 35px; */
+}
+
+#myUL {
+  position: absolute;
+  margin-left: 2px;
+  width: 120px;
+  padding-top: 5px;
+  list-style: none;
+  border: 1px black solid;
+  background-color: black;
+}
+
+#myUL > li {
+  padding-bottom: 2%;
+  padding-top: 2%;
+  color: white;
 }
 
 #myDropdown {
-  margin-top: 15px;
-  margin-left: 20px;
-  width: 600px;
-  height:200px;
+  /* margin-top: 15px;
+  margin-left: 20px; */
+  /* width: 600px; */
+  /* height:100px; */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -338,6 +370,9 @@ table {
   border-collapse: collapse;
   /* margin-left: 30px; */
   width: 100%;
+  font-family: freeroad;
+  font-weight: bold;
+  /* background-color: rgb(48, 47, 47); */
 }
 
 caption {
@@ -426,21 +461,24 @@ button {
 #line1, #radar {
   height:300px;
   width:500px;
-  padding
 }
 
 .chart-container {
   background-color: rgb(0, 0, 0, 0.8);
   border-radius: 2%;
-  padding-right: 0.5%;
+  padding-right: 0.8%;
   padding-bottom: 0.5%;
 }
 
-.radar {
-  padding-bottom: 2%;
+.chart-container:hover {
+  background-color: rgb(0, 0, 0, 0.9);
 }
 
-.linegr
+.radar {
+  padding-bottom: 3%;
+  font-family: freeroad;
+}
+
 @media only screen and (max-width: 600px) {
   .col {
     flex-basis: 100%;
