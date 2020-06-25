@@ -48,7 +48,7 @@ h1 {
 .head p{
   font-size: 30px;
   color: white;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 
@@ -66,12 +66,13 @@ h1 {
 
 .inner-data p{
   font-size: 14px;
+  font-weight: bold;
   padding-bottom: 5px;
 }
 
 .inner-data span{
   font-size: 18px;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 .btn{
@@ -84,7 +85,7 @@ h1 {
   padding: 6px 15px;
   border-radius: 50px;
   color: white;
-  font-weight: 600;
+  font-weight: bold;
   opacity: 0;
   transition: all 1s ease;
   cursor: pointer;
@@ -99,6 +100,7 @@ h1 {
   color: white;
   padding: 16px;
   font-size: 16px;
+  font-weight: bold;
   border: none;
   cursor: pointer;
 }
@@ -150,12 +152,17 @@ h1 {
 .show {display: block;}
 
 .container {
+
+  background-image: url(backboard.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
     width:100%;
     display: flex;
     align-items: center;
     align-content: center;
     flex-wrap: wrap;
 }
+
 
 .row {
     display: flex;
@@ -351,6 +358,7 @@ tr:hover {background-color:rgb(75, 75, 75);}
 
 .linegraph {
   margin-left: 100px;
+  padding-bottom: 50px;
 }
 
 .wrapper {
@@ -412,15 +420,27 @@ button {
 
 .barChart {
   height:300px;
-  width:480px
+  width:460px
 }
 
 #line1, #radar {
   height:300px;
-  width:500px
+  width:500px;
+  padding
 }
 
+.chart-container {
+  background-color: rgb(0, 0, 0, 0.8);
+  border-radius: 2%;
+  padding-right: 0.5%;
+  padding-bottom: 0.5%;
+}
 
+.radar {
+  padding-bottom: 2%;
+}
+
+.linegr
 @media only screen and (max-width: 600px) {
   .col {
     flex-basis: 100%;
