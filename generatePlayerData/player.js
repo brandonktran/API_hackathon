@@ -42,6 +42,11 @@ const changeTwo = document.getElementById('changePlayer2');
 changeTwo.addEventListener('click', changePlayer);
 search.addEventListener('click', findPlayer);
 const season = document.getElementById('season');
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('click', searchForPlayer);
+const lineStat = document.getElementById('stats');
+lineStat.addEventListener('change', updateLineChart);
+const body = document.querySelector('body');
 
 
 $.ajax({
@@ -49,6 +54,9 @@ $.ajax({
   type: 'GET',
   data: {
     'player_ids': [115, 237],
+  },
+  beforeSend: function () {
+    body.style.cursor = 'wait';
   },
   success: function (data) {
     console.log(data);
@@ -69,6 +77,9 @@ $.ajax({
   },
   error: function (error) {
     console.log(error);
+  },
+  complete: function () {
+    body.style.cursor = 'default';
   }
 });
 
@@ -79,12 +90,18 @@ $.ajax({
     'player_ids': [player1ID],
     'per_page': 10
   },
+  beforeSend: function () {
+    body.style.cursor = 'wait';
+  },
   success: function (data) {
     const total_pages = data.meta.total_pages;
     getPlayerGameStats(total_pages, player1ID, 0, 'pts');
   },
   error: function (error) {
     console.log(error);
+  },
+  complete: function () {
+    body.style.cursor = 'default';
   }
 });
 
@@ -95,12 +112,18 @@ $.ajax({
     'player_ids': [player2ID],
     'per_page': 10
   },
+  beforeSend: function () {
+    body.style.cursor = 'wait';
+  },
   success: function (data) {
     const total_pages = data.meta.total_pages;
     getPlayerGameStats(total_pages, player2ID, 1, 'pts');
   },
   error: function (error) {
     console.log(error);
+  },
+  complete: function () {
+    body.style.cursor = 'default';
   }
 });
 
@@ -116,7 +139,11 @@ function findPlayer() {
       'search': document.getElementById('searchInput').value,
       'per_page': 100
     },
+    beforeSend: function () {
+      body.style.cursor = 'wait';
+    },
     success: function (data) {
+      console.log(data)
       for (let i = 0; i < data.data.length; i++) {
         const button = document.createElement('li');
         const playerProf = data.data[i];
@@ -126,18 +153,27 @@ function findPlayer() {
           if (currentPlayer === 0) {
             // data.data.height_feet height_inches position team.full_name weight_pounds
             player1ID = event.currentTarget.id;
-            weight1.textContent = playerProf.weight_pounds;
-            height1.textContent = playerProf.height_feet + ' feet' + ' ' + playerProf.height_inches + ' inches';
-            team1.textContent = playerProf.team.full_name;
-            position1.textContent = playerProf.position;
+            weight1.textContent = playerProf.weight_pounds || 'No data found';
+            if (playerProf.height_feet === null) {
+              height1.textContent = 'No data found';
+            } else {
+              height1.textContent = `${playerProf.height_feet} feet ${playerProf.height_inches} inches`
+            }
+            team1.textContent = playerProf.team.full_name || 'No data found';
+            position1.textContent = playerProf.position || 'No data found';
           } else if (currentPlayer === 1) {
             player2ID = event.currentTarget.id;
-            weight2.textContent = playerProf.weight_pounds;
-            height2.textContent = playerProf.height_feet + ' feet' + ' ' + playerProf.height_inches + ' inches';
-            team2.textContent = playerProf.team.full_name;
-            position2.textContent = playerProf.position;
+            weight2.textContent = playerProf.weight_pounds || 'No data found';
+            if (playerProf.height_feet === null) {
+              height2.textContent = ' ';
+            } else {
+              height2.textContent = `${playerProf.height_feet} feet ${playerProf.height_inches} inches`
+            }
+            team2.textContent = playerProf.team.full_name || 'No data found';
+            position2.textContent = playerProf.position || 'No data found';
           }
-          getPlayerStats(event.currentTarget, currentPlayer);
+          console.log(playerProf.team.abbreviation)
+          getPlayerStats(event.currentTarget, currentPlayer, playerProf.team.abbreviation);
           const id = event.currentTarget.id;
           updateLineChart()
         })
@@ -147,13 +183,16 @@ function findPlayer() {
     },
     error: function (error) {
       console.log(error);
+    },
+    complete: function () {
+      body.style.cursor = 'default';
     }
   });
   document.getElementById('searchInput').value = '';
 }
 
 
-function getPlayerStats(player, playerNum) {
+function getPlayerStats(player, playerNum, team) {
   document.getElementById("myUL").innerHTML = '';
   document.getElementById("myUL").className = "noshow";
   $.ajax({
@@ -163,45 +202,55 @@ function getPlayerStats(player, playerNum) {
       'player_ids': [player.id],
       'season': season.value
     },
+    beforeSend: function () {
+      body.style.cursor = 'wait';
+    },
     success: function (data) {
-      console.log(data.data[0].season);
+      console.log(data);
+      // console.log(data.data[0].season);
       console.log(player)
       const [firstName, lastName] = player.textContent.split(' ');
-      barData.data.datasets[playerNum].label = data.data[0].season + ' ' + player.textContent;
-      bar2Data.data.datasets[playerNum].label = data.data[0].season + ' ' + player.textContent;
-      bar3Data.data.datasets[playerNum].label = data.data[0].season + ' ' + player.textContent;
-      radarData.data.datasets[playerNum].label = data.data[0].season + ' ' + player.textContent;
+      barData.data.datasets[playerNum].label = season.value + ' ' + player.textContent;
+      bar2Data.data.datasets[playerNum].label = season.value + ' ' + player.textContent;
+      bar3Data.data.datasets[playerNum].label = season.value + ' ' + player.textContent;
+      radarData.data.datasets[playerNum].label = season.value + ' ' + player.textContent;
       line1data.data.datasets[playerNum].label = player.textContent;
       barChart.update();
       bar2Chart.update();
       bar3Chart.update();
       radarChart.update();
-      createTable(data, currentPlayer, 0, player.textContent);
-      document.getElementById('img' + (currentPlayer + 1)).src = `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`;
       document.getElementById(`player${currentPlayer + 1}Name`).textContent = player.textContent;
       flip();
       if (data.data.length === 0) {
-        console.log('no regular season average data');
+        console.log('no player data for this season');
         barData.data.datasets[playerNum].data = [];
         bar2Data.data.datasets[playerNum].data = [];
         bar3Data.data.datasets[playerNum].data = [];
         radarData.data.datasets[playerNum].data = [];
+        document.getElementById('img' + (currentPlayer + 1)).src = `http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${team.toLowerCase()}.png`;
+        barChart.update();
+        bar2Chart.update();
+        bar3Chart.update();
+        radarChart.update();
+        createTable(data, currentPlayer, 0, player.textContent);
+      } else {
+        createTable(data, currentPlayer, 0, player.textContent);
+        document.getElementById('img' + (currentPlayer + 1)).src = `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`;
+        barData.data.datasets[playerNum].data = [data.data[0].fgm, data.data[0].fg3m, data.data[0].ftm];
+        bar2Data.data.datasets[playerNum].data = [data.data[0].fga, data.data[0].fg3a, data.data[0].fta];
+        bar3Data.data.datasets[playerNum].data = [data.data[0].fg_pct * 100, data.data[0].fg3_pct * 100, data.data[0].ft_pct * 100];
+        radarData.data.datasets[playerNum].data = [data.data[0].pts, data.data[0].reb, data.data[0].blk, data.data[0].stl, data.data[0].ast];
         barChart.update();
         bar2Chart.update();
         bar3Chart.update();
         radarChart.update();
       }
-      barData.data.datasets[playerNum].data = [data.data[0].fgm, data.data[0].fg3m, data.data[0].ftm];
-      bar2Data.data.datasets[playerNum].data = [data.data[0].fga, data.data[0].fg3a, data.data[0].fta];
-      bar3Data.data.datasets[playerNum].data = [data.data[0].fg_pct * 100, data.data[0].fg3_pct * 100, data.data[0].ft_pct * 100];
-      radarData.data.datasets[playerNum].data = [data.data[0].pts, data.data[0].reb, data.data[0].blk, data.data[0].stl, data.data[0].ast];
-      barChart.update();
-      bar2Chart.update();
-      bar3Chart.update();
-      radarChart.update();
     },
     error: function (error) {
       console.log(error);
+    },
+    complete: function () {
+      body.style.cursor = 'default';
     }
   });
 }
@@ -216,6 +265,9 @@ function getPlayerGameStats(lastPage, id, playerNum, stat) {
       'player_ids': [id],
       'per_page': 10,
       'page': lastPage - 1
+    },
+    beforeSend: function () {
+      body.style.cursor = 'wait';
     },
     success: function (data) {
       for (let i = 0; i < data.data.length; i++) {
@@ -250,6 +302,9 @@ function getPlayerGameStats(lastPage, id, playerNum, stat) {
     },
     error: function (error) {
       console.log(error);
+    },
+    complete: function () {
+      body.style.cursor = 'default';
     }
   });
 }
@@ -262,7 +317,6 @@ function searchForPlayer() {
 
 function updateLineChart() {
   const stat = document.getElementById('stats').value;
-  console.log('hi')
   $.ajax({
     url: "https://www.balldontlie.io/api/v1/stats",
     type: 'GET',
@@ -270,12 +324,18 @@ function updateLineChart() {
       'player_ids': [player1ID],
       'per_page': 10
     },
+    beforeSend: function () {
+      body.style.cursor = 'wait';
+    },
     success: function (data) {
       const total_pages = data.meta.total_pages;
       getPlayerGameStats(total_pages, player1ID, 0, stat);
     },
     error: function (error) {
       console.log(error);
+    },
+    complete: function () {
+      body.style.cursor = 'default';
     }
   });
 
@@ -286,12 +346,18 @@ function updateLineChart() {
       'player_ids': [player2ID],
       'per_page': 10
     },
+    beforeSend: function () {
+      body.style.cursor = 'wait';
+    },
     success: function (data) {
       const total_pages = data.meta.total_pages;
       getPlayerGameStats(total_pages, player2ID, 1, stat);
     },
     error: function (error) {
       console.log(error);
+    },
+    complete: function () {
+      body.style.cursor = 'default';
     }
   });
 }
@@ -324,9 +390,17 @@ function createTable(data, currentPlayer, index, name) {
   const first = document.createElement('td');
   first.textContent = name;
   row.append(first);
-  for (let prop in statArray) {
+  if (data.data.length !== 0) {
+    for (let prop in statArray) {
+      const elem = document.createElement('td');
+      elem.textContent = data.data[index][statArray[prop]];
+      row.append(elem);
+    }
+  } else {
     const elem = document.createElement('td');
-    elem.textContent = data.data[index][statArray[prop]];
+    elem.colSpan = 20;
+    elem.textContent = 'No season averages data found for selected season & player';
+    elem.style.color = 'red'
     row.append(elem);
   }
 }

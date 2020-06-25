@@ -11,9 +11,9 @@ body {
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 4.5vw;
   padding: 10px 5px 10px 30px;
-  margin-right: 40px;
+  margin-right: 1.5vw;
 }
 
 .container2{
@@ -27,7 +27,6 @@ h1 {
   width: 40%;
   height: 100%;
   float: left;
-  position: relative;
 }
 
 .img-container img{
@@ -55,7 +54,6 @@ h1 {
 
 .data{
   width: 90%;
-  overflow: hidden;
 }
 
 .inner-data{
@@ -120,7 +118,9 @@ h1 {
   border-bottom: 1px solid #ddd;
 }
 
-#myInput:focus {outline: 3px solid #ddd;}
+#myInput:focus {
+  outline: 3px solid #ddd;
+}
 
 .dropdown {
   margin-top: 1%;
@@ -150,6 +150,7 @@ h1 {
 .show {display: block;}
 
 .container {
+    width:100%;
     display: flex;
     align-items: center;
     align-content: center;
@@ -158,6 +159,7 @@ h1 {
 
 .row {
     display: flex;
+    /* flex-wrap: wrap; */
     align-items: center;
     align-content: center;
     margin: auto;
@@ -175,6 +177,9 @@ h1 {
 
 #heading {
   width:100%;
+  /* background-image: url(basketball.jpg);
+    background-repeat: no-repeat;
+  background-size: 100%; */
   display: flex;
   border-bottom: 2px white solid;
   background-color: rgb(26, 25, 25);
@@ -201,16 +206,13 @@ h1 {
 button, select, input, #myUL {
   background-color: rgb(75, 75, 75);
   color: white;
+  cursor: pointer;
 }
 
 #myUL {
   margin-left: 2px;
   width: 152px;
   padding-top: 5px;
-}
-
-button {
-  outline: none;
 }
 
 a {
@@ -233,13 +235,8 @@ a {
 .radar {
   border: 2px solid grey;
   border-radius: 2%;
+  height: 300px;
 }
-
-/* .chart-container {
-  background-color: rgb(75, 75, 75);
-  border-radius: 2%;
-  margin-right: 2%;
-} */
 
 img {
   border-color: black;
@@ -357,9 +354,6 @@ tr:hover {background-color:rgb(75, 75, 75);}
 }
 
 .wrapper {
-    /* width: 200px;
-    height: 260px; */
-    /* position: relative; */
     -webkit-perspective: 800px;
     -moz-perspective: 800px;
     -o-perspective: 800px;
@@ -405,6 +399,30 @@ tr:hover {background-color:rgb(75, 75, 75);}
     transform: rotateY( 360deg );
 }
 
+
 button {
+    outline: none;
   color: white
+}
+
+
+.bar {
+  height: 300px;
+}
+
+.barChart {
+  height:300px;
+  width:480px
+}
+
+#line1, #radar {
+  height:300px;
+  width:500px
+}
+
+
+@media only screen and (max-width: 600px) {
+  .col {
+    flex-basis: 100%;
+  }
 }
