@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/styles.css">
   <title>App Name</title>
 </head>
 
@@ -14,17 +14,6 @@
     <h1>App Name</h1>
     <button class="btn black margin-t">Compare Players</button>
     <button class="btn black margin-t"><a href="generateTeamData/team.html">Compare Teams</a></button>
-    <!-- <label for="season" id="labelSeason">Season:</label>
-    <select name="season" id="season">
-    </select>
-    <div class="dropdown">
-      <div id="myDropdown" class="dropdown-content">
-        <input type="text" id="searchInput" placeholder="Search for a player..">
-        <button id="search" class="btn black">Search</button>
-        <ul id="myUL" class="noshow">
-        </ul>
-      </div>
-    </div> -->
   </div>
   <hr>
   <br>
@@ -124,7 +113,7 @@
     </div>
     <div class="row">
       <div class="col chart-container linegraph" data-aos="zoom-in-up" data-aos-duration="1000">
-        <label for="stats">Choose a stat:</label>
+        <label for="stats" id="labelStats">Stat:</label>
         <select name="stats" id="stats" class="cd-select">
           <option value="pts">Points</option>
           <option value="ast">Assists</option>
