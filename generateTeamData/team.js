@@ -52,16 +52,16 @@ const teams = [{ teamID: "1610612737", abbreviation: "ATL", name: "Atlanta Hawks
 const lastSeason = 19;
 const position1 = document.getElementById('position1');
 const position2 = document.getElementById('position2');
-const dropdown = document.getElementById('myUL');
-const search = document.getElementById('search');
+// const dropdown = document.getElementById('myUL');
+// const search = document.getElementById('search');
 const changeOne = document.getElementById('changePlayer1');
 changeOne.addEventListener('click', changePlayer);
 const changeTwo = document.getElementById('changePlayer2');
 changeTwo.addEventListener('click', changePlayer);
-const season = document.getElementById('season');
-const searchInput = document.getElementById('searchInput');
-searchInput.addEventListener('click', searchForPlayer);
-searchInput.addEventListener('keyup', filterFunction)
+// const season = document.getElementById('season');
+// const searchInput = document.getElementById('searchInput');
+// searchInput.addEventListener('click', searchForPlayer);
+// searchInput.addEventListener('keyup', filterFunction)
 const body = document.querySelector('body');
 
 $.ajax({
@@ -165,22 +165,9 @@ function getPlayerStats(player, playerNum) {
             bar2Chart.update();
             bar3Chart.update();
             radarChart.update();
-            // line1Chart.update();
-            // createTable(data, currentPlayer, 0, player.textContent);
             document.getElementById('img' + (currentPlayer + 1)).src = `http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${team.abbreviation.toLowerCase()}.png`;
             document.getElementById(`player${currentPlayer + 1}Name`).textContent = team.name + ' ' + team.nickname;
             flip();
-            // if (data.data.length === 0) {
-            //     console.log('no regular season average data');
-            //     barData.data.datasets[playerNum].data = [];
-            //     bar2Data.data.datasets[playerNum].data = [];
-            //     bar3Data.data.datasets[playerNum].data = [];
-            //     radarData.data.datasets[playerNum].data = [];
-            //     barChart.update();
-            //     bar2Chart.update();
-            //     bar3Chart.update();
-            //     radarChart.update();
-            // }
         },
         error: function (error) {
             console.log(error);
@@ -195,11 +182,60 @@ function getPlayerStats(player, playerNum) {
 function changePlayer(event) {
     if (event.currentTarget.id === 'changePlayer2') {
         currentPlayer = 1;
+        const searchMenu = document.getElementById(`searchMenu1`);
+        searchMenu.innerHTML = '';
+        const playerbutton = document.getElementById(`changePlayer1`);
+        playerbutton.style.display = '';
+        searchMenu.classList.add('noshow');
     } else if (event.currentTarget.id === 'changePlayer1') {
         currentPlayer = 0;
+        const searchMenu = document.getElementById(`searchMenu2`);
+        searchMenu.innerHTML = '';
+        const playerbutton = document.getElementById(`changePlayer2`);
+        playerbutton.style.display = '';
+        searchMenu.classList.add('noshow');
     }
-    document.getElementById("myUL").className = "show";
+    const searchMenu = document.getElementById(`searchMenu${currentPlayer + 1}`)
+    searchMenu.innerHTML = '';
+
     console.log(currentPlayer);
+    const dropdown = document.createElement('div');
+    dropdown.className = 'dropdown';
+    const myDropdown = document.createElement('div');
+    myDropdown.className = 'dropdown-content';
+    myDropdown.id = 'myDropdown';
+    dropdown.append(myDropdown);
+    const searchInput = document.createElement('input');
+    searchInput.id = 'searchInput';
+    searchInput.type = 'text';
+    searchInput.placeholder = 'Search for a team..'
+    searchInput.addEventListener('click', searchForPlayer);
+    searchInput.addEventListener('keyup', filterFunction)
+    myDropdown.append(searchInput);
+    const search = document.createElement('button');
+    search.id = 'search';
+    search.className = 'btn black';
+    search.textContent = 'Search';
+    myDropdown.append(search);
+    const myUL = document.createElement('ul');
+    myUL.id = 'myUL'
+    myUL.className = 'noshow';
+    myDropdown.append(myUL);
+    const labelSeason = document.createElement('label');
+    labelSeason.id = 'labelSeason';
+    labelSeason.textContent = 'Season:'
+    dropdown.append(labelSeason);
+    const season = document.createElement('select');
+    season.id = 'season';
+    dropdown.append(season);
+    searchMenu.append(dropdown);
+    createSeasonDropdown(season)
+    const playerbutton = document.getElementById(`changePlayer${currentPlayer + 1}`);
+    playerbutton.style.display = 'none';
+    createSeasonDropdown()
+    createTeamDropDown();
+    searchMenu.classList.remove('noshow');
+
 }
 
 
@@ -255,6 +291,7 @@ function filterFunction() {
 }
 
 function createTeamDropDown() {
+    const dropdown = document.getElementById('myUL');
     for (let i = 0; i < teams.length; i++) {
         const item = document.createElement('li');
         item.textContent = teams[i].name;
@@ -275,23 +312,24 @@ function flip() {
 
 }
 
-createSeasonDropdown()
-createTeamDropDown();
 
 
-// $.ajax({
-//     url: 'https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2019/team_stats_rankings.json',
-//     type: 'GET',
-//     success: function (data) {
-//         const team = data.league.standard.regularSeason.teams
-//         for (let i = 8; i <= 37; i++) {
-//             teams[i - 8] = { teamID: team[i].teamId, abbreviation: team[i].abbreviation, name: team[i].name + ' ' + team[i].nickname }
-//         }
-//         console.log(teams)
-//     },
-//     error: function (error) {
-//         console.log(error);
-//     }
-// });
 
-// http://data.nba.net/10s/prod/v1/2019/team_stats_rankings.json
+// if (event.currentTarget.id === 'changePlayer2') {
+//     currentPlayer = 1;
+// } else if (event.currentTarget.id === 'changePlayer1') {
+//     currentPlayer = 0;
+// }
+// document.getElementById("myUL").className = "show";
+// console.log(currentPlayer);
+
+{/* <div class="dropdown">
+    <div id="myDropdown" class="dropdown-content">
+        <input type="text" id="searchInput" placeholder="Search for a team..">
+            <ul id="myUL" class="noshow">
+            </ul>
+            <label for="season" id="labelSeason">Season:</label>
+            <select name="season" id="season">
+            </select>
+            </div>
+    </div> */}

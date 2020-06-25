@@ -1,7 +1,8 @@
 @font-face {
-  font-family: rundschrift;
-  src: url(Fonts/DIN-Rundschrift-FontZillion/Fonts/dinrundschrifteng.otf);
+  font-family: helvetica-condensed;
+  src: url(Fonts/helvetica-condensed-black.otf);
 }
+
 
 @font-face {
   font-family: freeroad;
@@ -27,6 +28,7 @@ h1 {
   font-size: 4.5vw;
   padding: 10px 5px 10px 30px;
   margin-right: 1.5vw;
+  /* font-family: helvetica-condensed; */
 }
 
 .container2{
@@ -44,7 +46,6 @@ h1 {
 
 .img-container img{
   width: 100%;
-  height: 100%;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
@@ -255,13 +256,13 @@ a {
 }
 
 img {
-  border-color: black;
+  /* border-color: black;
   border-width: 1px;
-  border-style: solid;
+  border-style: solid; */
 }
 .img-container {
   height: 200px;
-  background-color: white;
+  /* background-color: white; */
 }
 .container2 {
   height: 300px;
@@ -477,6 +478,14 @@ button {
 .radar {
   padding-bottom: 3%;
   font-family: freeroad;
+}
+
+.container2 {
+  background-image: url(logo3.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+  padding-left:0;
+  background-repeat: no-repeat;
 }
 
 @media only screen and (max-width: 600px) {
