@@ -54,7 +54,6 @@ $.ajax({
     body.style.cursor = 'wait';
   },
   success: function (data) {
-    console.log(data);
     barData.data.datasets[0].data = [data.data[0].fgm, data.data[0].fg3m, data.data[0].ftm];
     barData.data.datasets[1].data = [data.data[1].fgm, data.data[1].fg3m, data.data[1].ftm];
     bar2Data.data.datasets[0].data = [data.data[0].fga, data.data[0].fg3a, data.data[0].fta];
@@ -139,7 +138,6 @@ function findPlayer() {
       body.style.cursor = 'wait';
     },
     success: function (data) {
-      console.log(data)
       for (let i = 0; i < data.data.length; i++) {
         const button = document.createElement('li');
         const playerProf = data.data[i];
@@ -168,7 +166,6 @@ function findPlayer() {
             team2.textContent = playerProf.team.full_name || 'No data found';
             position2.textContent = playerProf.position || 'No data found';
           }
-          console.log(playerProf.team.abbreviation)
           getPlayerStats(event.currentTarget, currentPlayer, playerProf.team.abbreviation);
           const id = event.currentTarget.id;
           updateLineChart()
@@ -203,10 +200,6 @@ function getPlayerStats(player, playerNum, team) {
       body.style.cursor = 'wait';
     },
     success: function (data) {
-      console.log('hi')
-      console.log(data);
-      // console.log(data.data[0].season);
-      console.log(player)
       const [firstName, lastName] = player.textContent.split(' ');
       barData.data.datasets[playerNum].label = season.value + ' ' + player.textContent;
       bar2Data.data.datasets[playerNum].label = season.value + ' ' + player.textContent;
@@ -297,7 +290,6 @@ function getPlayerGameStats(lastPage, id, playerNum, stat) {
             line1data.data.datasets[playerNum].data[i] = playerGameStats[i][stat];
           }
           line1Chart.update();
-          // line1Chart = new Chart(line1CTX, line1data);
         },
         error: function (error) {
           console.log(error);
@@ -312,12 +304,6 @@ function getPlayerGameStats(lastPage, id, playerNum, stat) {
     }
   });
 }
-
-
-// function searchForPlayer() {
-//   document.getElementById("myUL").className = "show";
-// }
-
 
 function updateLineChart() {
   const stat = document.getElementById('stats').value;
@@ -385,10 +371,6 @@ function changePlayer(event) {
   }
   const searchMenu = document.getElementById(`searchMenu${currentPlayer + 1}`)
   searchMenu.innerHTML = '';
-  // const item = document.createElement('li');
-  // item.textContent = 'Search for a Player Above'
-  // dropdown.append(item);
-  // dropdown.className = "show";
   console.log(currentPlayer);
   const dropdown = document.createElement('div');
   dropdown.className = 'dropdown';
@@ -400,7 +382,6 @@ function changePlayer(event) {
   searchInput.id = 'searchInput';
   searchInput.type = 'text';
   searchInput.placeholder = 'Find player..'
-  // searchInput.addEventListener('click', searchForPlayer);
   myDropdown.append(searchInput);
   const search = document.createElement('button');
   search.id = 'search';

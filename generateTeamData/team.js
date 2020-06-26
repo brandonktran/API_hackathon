@@ -2,7 +2,6 @@ let barChart;
 let bar2Chart;
 let bar3Chart;
 let radarChart;
-// let line1Chart = new Chart(line1CTX, line1data);
 let player1ID = 115;
 let player2ID = 237;
 let currentPlayer = 0;
@@ -52,16 +51,10 @@ const teams = [{ teamID: "1610612737", abbreviation: "ATL", name: "Atlanta Hawks
 const lastSeason = 19;
 const position1 = document.getElementById('position1');
 const position2 = document.getElementById('position2');
-// const dropdown = document.getElementById('myUL');
-// const search = document.getElementById('search');
 const changeOne = document.getElementById('changePlayer1');
 changeOne.addEventListener('click', changePlayer);
 const changeTwo = document.getElementById('changePlayer2');
 changeTwo.addEventListener('click', changePlayer);
-// const season = document.getElementById('season');
-// const searchInput = document.getElementById('searchInput');
-// searchInput.addEventListener('click', searchForPlayer);
-// searchInput.addEventListener('keyup', filterFunction)
 const body = document.querySelector('body');
 
 $.ajax({
@@ -77,7 +70,6 @@ $.ajax({
                 team = team[i];
             }
         }
-        console.log(team);
         barData.data.datasets[0].data = [team.fgp.avg * 100, team.ftp.avg * 100];
         bar2Data.data.datasets[0].data = [team.ppg.avg, team.oppg.avg];
         bar3Data.data.datasets[0].data = [team.eff.avg];
@@ -148,7 +140,6 @@ function getPlayerStats(player, playerNum) {
                     team = team[i];
                 }
             }
-            console.log(team);
             barData.data.datasets[playerNum].data = [team.fgp.avg * 100, team.ftp.avg * 100];
             bar2Data.data.datasets[playerNum].data = [team.ppg.avg, team.oppg.avg];
             bar3Data.data.datasets[playerNum].data = [team.eff.avg];
@@ -202,7 +193,6 @@ function changePlayer(event) {
     const searchMenu = document.getElementById(`searchMenu${currentPlayer + 1}`)
     searchMenu.innerHTML = '';
 
-    console.log(currentPlayer);
     const dropdown = document.createElement('div');
     dropdown.className = 'dropdown';
     dropdown.classList.remove('noshow');
@@ -217,11 +207,6 @@ function changePlayer(event) {
     searchInput.addEventListener('click', searchForPlayer);
     searchInput.addEventListener('keyup', filterFunction)
     myDropdown.append(searchInput);
-    // const search = document.createElement('button');
-    // search.id = 'search';
-    // search.className = 'btn black';
-    // search.textContent = 'Search';
-    // myDropdown.append(search);
     const myUL = document.createElement('ul');
     myUL.id = 'myUL'
     myUL.className = 'noshow';

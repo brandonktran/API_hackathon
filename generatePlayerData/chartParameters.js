@@ -53,7 +53,6 @@ const barData = {
     legend: {
       display: true,
       // labels: {
-      //   // This more specific font property overrides the global property
       //   fontColor: 'grey'
       // }
     },
@@ -76,8 +75,6 @@ const barData = {
           fontColor: 'grey',
           fontSize: 14,
           beginAtZero: true,
-          // max: 30,
-          // min: 0,
         }
       }]
     }
@@ -134,9 +131,6 @@ const bar2Data = {
           fontColor: 'grey',
           fontSize: 14,
           beginAtZero: true,
-          // max: 30,
-          // min: 0,
-          // stepSize: 5
         }
       }]
     }
@@ -193,9 +187,6 @@ const bar3Data = {
           fontColor: 'grey',
           fontSize: 14,
           beginAtZero: true,
-          // max: 30,
-          // min: 0,
-          // stepSize: 5
         }
       }]
     }
@@ -234,7 +225,8 @@ const radarData = {
         color: colorGrid
       },
       pointLabels: {
-        fontSize: 18
+        fontSize: 18,
+        FontFamily: 'Roboto'
       },
       angleLines: {
         color: colorGrid
@@ -243,9 +235,6 @@ const radarData = {
         callback: function () { return "" },
         backdropColor: 'rgb(46, 46, 46)',
         beginAtZero: true,
-        // max: 30,
-        // min: 0,
-        // stepSize: 1
       }
     }
   }
@@ -303,9 +292,6 @@ const line1data = {
           fontColor: 'grey',
           fontSize: 14,
           beginAtZero: true,
-          // max: 30,
-          // min: 0,
-          // stepSize: 5
         }
       }]
     }

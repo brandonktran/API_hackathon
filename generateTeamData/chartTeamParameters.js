@@ -49,7 +49,6 @@ const barData = {
         legend: {
             display: true,
             // labels: {
-            //   // This more specific font property overrides the global property
             //   fontColor: 'white'
             // }
         },
@@ -72,9 +71,6 @@ const barData = {
                     fontColor: 'grey',
                     fontSize: 14,
                     beginAtZero: true,
-                    // max: 30,
-                    // min: 0,
-                    // stepSize: 5
                 }
             }]
         }
@@ -190,9 +186,6 @@ const bar3Data = {
                     fontColor: 'grey',
                     fontSize: 14,
                     beginAtZero: true,
-                    // max: 30,
-                    // min: 0,
-                    // stepSize: 5
                 }
             }]
         }
@@ -205,19 +198,20 @@ const radarData = {
         labels: ["PPG", "RPG", "BPG", "SPG", "APG"],
         datasets: [{
             label: currSeason + ' ' + "Los Angeles Clippers",
-            backgroundColor: "rgb(222, 66, 91, 0.8)",
+            backgroundColor: "rgb(4, 76, 138, 0.8)",
             data: [],
             pointHoverRadius: 10,
-            pointHoverBackgroundColor: "rgb(222, 66, 91)",
-            lineTension: 0.8
+            pointHoverBackgroundColor: "rgb(4, 76, 138, 0.8)",
+            // lineTension: 0.8
         }
             ,
         {
             label: currSeason + ' ' + "Los Angeles Lakers",
-            backgroundColor: "rgb(72, 143, 49, 0.8)",
+            backgroundColor: "rgb(147, 22, 33, 0.8)",
             data: [],
             pointHoverRadius: 10,
-            pointHoverBackgroundColor: "rgb(72, 143, 49)"
+            pointHoverBackgroundColor: "rgb(147, 22, 33, 0.8)",
+            lineTension: 0.8
         }
         ]
     },
@@ -240,40 +234,7 @@ const radarData = {
                 callback: function () { return "" },
                 backdropColor: 'rgb(46, 46, 46)',
                 beginAtZero: true,
-                // max: 30,
-                // min: 0,
-                // stepSize: 1
             }
         }
     }
 }
-
-// const line1CTX = document.getElementById('line1').getContext('2d');
-// const line1data = {
-//     type: 'line',
-//     data: {
-//         labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-//         datasets: [{
-//             data: [],
-//             label: "Los Angeles Clippers",
-//             borderColor: "#3e95cd",
-//             fill: false
-//         }, {
-//             data: [],
-//             label: "Los Angeles Lakers",
-//             borderColor: "#8e5ea2",
-//             fill: false
-//         }
-//         ]
-//     },
-//     options: {
-//         animation: {
-//             duration: 1500,
-//             easing: 'linear'
-//         },
-//         title: {
-//             display: true,
-//             text: 'Last 5 Games'
-//         }
-//     }
-// }
