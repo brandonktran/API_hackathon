@@ -131,6 +131,10 @@ function searchForPlayer() {
 
 function getPlayerStats(player, playerNum) {
     document.getElementById("myUL").className = "noshow";
+    const dropdown = document.querySelector('.dropdown')
+    dropdown.classList.add('noshow');
+    const playerbutton = document.getElementById(`changePlayer${currentPlayer + 1}`);
+    playerbutton.style.display = '';
     $.ajax({
         url: `https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/${season.value}/team_stats_rankings.json`,
         type: 'GET',
@@ -201,6 +205,7 @@ function changePlayer(event) {
     console.log(currentPlayer);
     const dropdown = document.createElement('div');
     dropdown.className = 'dropdown';
+    dropdown.classList.remove('noshow');
     const myDropdown = document.createElement('div');
     myDropdown.className = 'dropdown-content';
     myDropdown.id = 'myDropdown';
@@ -212,11 +217,11 @@ function changePlayer(event) {
     searchInput.addEventListener('click', searchForPlayer);
     searchInput.addEventListener('keyup', filterFunction)
     myDropdown.append(searchInput);
-    const search = document.createElement('button');
-    search.id = 'search';
-    search.className = 'btn black';
-    search.textContent = 'Search';
-    myDropdown.append(search);
+    // const search = document.createElement('button');
+    // search.id = 'search';
+    // search.className = 'btn black';
+    // search.textContent = 'Search';
+    // myDropdown.append(search);
     const myUL = document.createElement('ul');
     myUL.id = 'myUL'
     myUL.className = 'noshow';
