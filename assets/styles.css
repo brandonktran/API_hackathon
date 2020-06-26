@@ -2,6 +2,18 @@
   font-family: helvetica-condensed;
   src: url(Fonts/helvetica-condensed-black.otf);
 } */
+/* @font-face {
+    font-family: "Gentona";
+    src: url("Fonts/Gentona-Book-Font/GentonaBookItalic.otf");
+    font-style: italic;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Gentona";
+    src: url("Fonts/Gentona-Book-Font/GentonaBookBold.otf");
+    font-weight: bold;
+    font-weight: normal;
+} */
 
 @font-face {
   font-family: freeroad;
@@ -21,16 +33,18 @@
 
 body {
   background-color: 	rgb(46, 46, 46);
-  font-family: freeroad;
-  background-image: url(images/backboard.jpg);
+  font-family: 'freeroad';
+  /* background-image: url(images/backboard.jpg); */
+  background-color: rgb(12, 12, 12);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
 }
 
 h1 {
-  font-size: 4.5vw;
-  padding: 20px 5px 10px 30px;
+  /* font-family: 'Gentona'; */
+  font-size: 4vw;
+  padding: 15px 5px 10px 30px;
   margin-right: 1.5vw;
   /* font-family: helvetica-condensed; */
 }
@@ -181,11 +195,12 @@ h1 {
 }
 
 #heading {
-  height:120px;
+  height:90px;
   width:100%;
   display: flex;
   border-bottom: 2px white solid;
-  background-color: rgb(0, 0, 0, 0.9);
+   background-image: linear-gradient(rgb(23, 59, 87, 1) ,rgb(146, 141, 141, 0.1), rgb(87, 26, 41, 1));
+  /* background-color: 	rgb(26, 79, 119); */
   margin-bottom: 2%;
   position: fixed;
   z-index:1;
@@ -231,7 +246,7 @@ a {
 
 .radar {
   border: 2px solid grey;
-  border-radius: 2%;
+  /* border-radius: 2%; */
   height: 300px;
 }
 
@@ -358,6 +373,7 @@ tr:hover {background-color:rgb(75, 75, 75);}
 .linegraph {
   margin-left: 100px;
   padding-bottom: 50px;
+  padding-left: 10px;
 }
 
 .wrapper {
@@ -413,6 +429,7 @@ tr:hover {background-color:rgb(75, 75, 75);}
 }
 
 #labelStats {
+  color: grey;
   font-size: 20px;
   right: 21%;
   top: 5%;
@@ -441,21 +458,23 @@ button {
 
 .chart-container {
   /* background-color: #ece8e1; */
-  background-color: rgb(0, 0, 0, 0.9);
+  background-color: black);
   /* background-image: url(images/logo.jpg);
   background-size: 100%;
   background-repeat: no-repeat; */
-  border-radius: 2%;
+  /* border: 0.5px white solid; */
+  /* border-radius: 2%; */
   padding-right: 0.8%;
   padding-bottom: 0.5%;
 }
 
 .chart-container:hover {
-  background-color: rgb(0, 0, 0, 1);
+  background-color:rgb(255,255,255,0.9);
 }
 
 .radar {
-  padding-bottom: 3.5%;
+  padding-bottom: 5%;
+  border-radius: 2%;
 }
 
 .container2 {
@@ -608,13 +627,13 @@ button {
 }
 
 #head1, #head2 {
-  margin-top: 2.5%;
+  margin-top: 2%;
   margin-left: 2%;
-  height: 40px
+  height: 25px
 }
 
 #head1 a, #head2 a {
-  padding:20px;
+  padding:10px;
 }
 
 #head2 {

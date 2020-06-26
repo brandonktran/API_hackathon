@@ -1,8 +1,8 @@
 const currSeason = 2019;
-const colorGrid = 'white';
-Chart.defaults.global.defaultFontColor = 'white';
-Chart.defaults.global.defaultFontSize = 20;
-Chart.defaults.global.defaultFontFamily = 'freeroad';
+const colorGrid = 'grey';
+Chart.defaults.global.defaultFontColor = 'grey';
+Chart.defaults.global.defaultFontSize = 16;
+Chart.defaults.global.defaultFontFamily = 'Roboto';
 const radarSize = document.getElementById('radar');
 radarSize.width = radarSize.parentNode.clientWidth;
 radarSize.height = radarSize.parentNode.clientHeight;
@@ -32,7 +32,7 @@ const barData = {
         backgroundColor: 'rgb(0, 63, 92)',
         borderColor: 'rgb(0, 63, 92)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgb(0, 63, 92, 1)'
+        hoverBackgroundColor: 'rgb(0, 63, 92)'
       },
       {
         label: currSeason + ' ' + "Lebron James",
@@ -54,7 +54,7 @@ const barData = {
       display: true,
       // labels: {
       //   // This more specific font property overrides the global property
-      //   fontColor: 'white'
+      //   fontColor: 'grey'
       // }
     },
     title: {
@@ -73,6 +73,8 @@ const barData = {
           color: colorGrid,
         },
         ticks: {
+          fontColor: 'grey',
+          fontSize: 14,
           beginAtZero: true,
           // max: 30,
           // min: 0,
@@ -91,19 +93,19 @@ const bar2Data = {
         label: currSeason + ' ' + "Stephen Curry",
         fillColor: "red",
         data: [],
-        backgroundColor: 'rgb(221, 81, 130)',
-        borderColor: 'rgb(221, 81, 130)',
+        backgroundColor: '#2C2C54',
+        borderColor: '#2C2C54',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgb(221, 81, 130)'
+        hoverBackgroundColor: '#2C2C54'
       },
       {
         label: currSeason + ' ' + "Lebron James",
         fillColor: "blue",
         data: [],
-        backgroundColor: 'rgb(255, 110, 84)',
-        borderColor: 'rgb(255, 110, 84)',
+        backgroundColor: '#A40E4C',
+        borderColor: '#A40E4C',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgb(255, 110, 84)'
+        hoverBackgroundColor: '#A40E4C'
       }
     ]
   },
@@ -129,6 +131,8 @@ const bar2Data = {
           color: colorGrid,
         },
         ticks: {
+          fontColor: 'grey',
+          fontSize: 14,
           beginAtZero: true,
           // max: 30,
           // min: 0,
@@ -148,19 +152,19 @@ const bar3Data = {
         label: currSeason + ' ' + "Stephen Curry",
         fillColor: "red",
         data: [],
-        backgroundColor: 'rgb(68, 78, 134)',
-        borderColor: 'rgb(68, 78, 134)',
+        backgroundColor: '#231F20',
+        borderColor: '#231F20',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgb(68, 78, 134)'
+        hoverBackgroundColor: '#231F20'
       },
       {
         label: currSeason + ' ' + "Lebron James",
         fillColor: "blue",
         data: [],
-        backgroundColor: 'rgb(149, 81, 150)',
-        borderColor: 'rgb(149, 81, 150)',
+        backgroundColor: '#BB4430',
+        borderColor: '#BB4430',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgb(149, 81, 150)'
+        hoverBackgroundColor: '#BB4430'
       }
     ]
   },
@@ -186,6 +190,8 @@ const bar3Data = {
           color: colorGrid,
         },
         ticks: {
+          fontColor: 'grey',
+          fontSize: 14,
           beginAtZero: true,
           // max: 30,
           // min: 0,
@@ -202,19 +208,19 @@ const radarData = {
     labels: ["PPG", "RPG", "BPG", "SPG", "APG"],
     datasets: [{
       label: currSeason + ' ' + "Stephen Curry",
-      backgroundColor: "rgb(222, 66, 91, 0.8)",
+      backgroundColor: "rgb(147, 22, 33, 0.8)",
       data: [],
       pointHoverRadius: 10,
-      pointHoverBackgroundColor: "rgb(222, 66, 91)",
+      pointHoverBackgroundColor: "rgb(147, 22, 33, 0.8)",
       // lineTension: 0.5
     }
       ,
     {
       label: currSeason + ' ' + "Lebron James",
-      backgroundColor: "rgb(72, 143, 49, 0.8)",
+      backgroundColor: "rgb(4, 76, 138, 0.8)",
       data: [],
       pointHoverRadius: 10,
-      pointHoverBackgroundColor: "rgb(72, 143, 49)"
+      pointHoverBackgroundColor: "rgb(40, 70, 75, 0.8)"
     }
     ]
   },
@@ -279,6 +285,14 @@ const line1data = {
       xAxes: [{
         gridLines: {
           color: colorGrid,
+        },
+        ticks: {
+          fontColor: 'grey',
+          fontSize: 14,
+          beginAtZero: true,
+          // max: 30,
+          // min: 0,
+          // stepSize: 5
         }
       }],
       yAxes: [{
@@ -286,6 +300,8 @@ const line1data = {
           color: colorGrid,
         },
         ticks: {
+          fontColor: 'grey',
+          fontSize: 14,
           beginAtZero: true,
           // max: 30,
           // min: 0,

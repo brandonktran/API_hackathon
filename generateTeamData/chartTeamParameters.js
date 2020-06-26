@@ -1,8 +1,8 @@
 const currSeason = 2019
-const colorGrid = 'white';
-Chart.defaults.global.defaultFontColor = 'white';
-Chart.defaults.global.defaultFontSize = 20;
-Chart.defaults.global.defaultFontFamily = 'freeroad';
+const colorGrid = 'grey';
+Chart.defaults.global.defaultFontColor = 'grey';
+Chart.defaults.global.defaultFontSize = 16;
+Chart.defaults.global.defaultFontFamily = 'Roboto';
 const radarSize = document.getElementById('radar');
 radarSize.width = radarSize.parentNode.clientWidth;
 radarSize.height = radarSize.parentNode.clientHeight;
@@ -25,19 +25,19 @@ const barData = {
                 label: currSeason + ' ' + "Los Angeles Clippers",
                 fillColor: "red",
                 data: [],
-                backgroundColor: 'rgb(62, 149, 205, 0.8)',
-                borderColor: 'rgb(62, 149, 205, 1)',
+                backgroundColor: 'rgb(0, 63, 92)',
+                borderColor: 'rgb(0, 63, 92)',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rgb(62, 149, 205)'
+                hoverBackgroundColor: 'rgb(0, 63, 92)'
             },
             {
                 label: currSeason + ' ' + "Los Angeles Lakers",
                 fillColor: "blue",
                 data: [],
-                backgroundColor: 'rgb(142, 94, 162, 0.8)',
-                borderColor: 'rgb(142, 94, 162, 1)',
+                backgroundColor: 'rgb(255, 166, 0)',
+                borderColor: 'rgb(255, 166, 0)',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rgb(142, 94, 162)'
+                hoverBackgroundColor: 'rgb(255, 166, 0)'
             }
         ]
     },
@@ -69,6 +69,8 @@ const barData = {
                     color: colorGrid,
                 },
                 ticks: {
+                    fontColor: 'grey',
+                    fontSize: 14,
                     beginAtZero: true,
                     // max: 30,
                     // min: 0,
@@ -88,19 +90,19 @@ const bar2Data = {
                 label: currSeason + ' ' + "Los Angeles Clippers",
                 fillColor: "red",
                 data: [],
-                backgroundColor: 'rgb(60, 186, 159, 0.8)',
-                borderColor: 'rgb(60, 186, 159, 1)',
+                backgroundColor: '#2C2C54',
+                borderColor: '#2C2C54',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rgb(60, 186, 159, 1)'
+                hoverBackgroundColor: '#2C2C54'
             },
             {
                 label: currSeason + ' ' + "Los Angeles Lakers",
                 fillColor: "blue",
                 data: [],
-                backgroundColor: 'rgb(232, 195, 185, 0.8)',
-                borderColor: 'rgb(232, 195, 185, 1)',
+                backgroundColor: '#A40E4C',
+                borderColor: '#A40E4C',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rrgb(232, 195, 185, 1)'
+                hoverBackgroundColor: '#A40E4C'
             }
         ]
     },
@@ -126,6 +128,8 @@ const bar2Data = {
                     color: colorGrid,
                 },
                 ticks: {
+                    fontColor: 'grey',
+                    fontSize: 14,
                     beginAtZero: true,
                     // max: 30,
                     // min: 0,
@@ -145,19 +149,19 @@ const bar3Data = {
                 label: currSeason + ' ' + "Los Angeles Clippers",
                 fillColor: "red",
                 data: [],
-                backgroundColor: 'rgb(196, 88, 80, 0.8)',
-                borderColor: 'rgb(196, 88, 80, 1)',
+                backgroundColor: '#231F20',
+                borderColor: '#231F20',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rgb(196, 88, 80, 1)'
+                hoverBackgroundColor: '#231F20'
             },
             {
                 label: currSeason + ' ' + "Los Angeles Lakers",
                 fillColor: "blue",
                 data: [],
-                backgroundColor: 'rgb(232, 195, 185, 0.8)',
-                borderColor: 'rgb(232, 195, 185, 1)',
+                backgroundColor: '#BB4430',
+                borderColor: '#BB4430',
                 borderWidth: 1,
-                hoverBackgroundColor: 'rrgb(232, 195, 185, 1)'
+                hoverBackgroundColor: '#BB4430'
             }
         ]
     },
@@ -183,6 +187,8 @@ const bar3Data = {
                     color: colorGrid,
                 },
                 ticks: {
+                    fontColor: 'grey',
+                    fontSize: 14,
                     beginAtZero: true,
                     // max: 30,
                     // min: 0,
