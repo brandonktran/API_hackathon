@@ -399,14 +399,16 @@ function changePlayer(event) {
   const searchInput = document.createElement('input');
   searchInput.id = 'searchInput';
   searchInput.type = 'text';
-  searchInput.placeholder = 'Search for a player..'
+  searchInput.placeholder = 'Find player..'
   // searchInput.addEventListener('click', searchForPlayer);
   myDropdown.append(searchInput);
   const search = document.createElement('button');
   search.id = 'search';
   search.className = 'btn1 black';
   search.textContent = 'Search';
+  // $("#search").append("<a class='white' href='#'>< p > <span class='bg'></span><span class='base'></span><span class=text'>Compare Players</span></p ></a >");
   search.addEventListener('click', findPlayer);
+
   myDropdown.append(search);
   const myUL = document.createElement('ul');
   myUL.id = 'myUL'
