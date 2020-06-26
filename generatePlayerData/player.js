@@ -404,7 +404,7 @@ function changePlayer(event) {
   myDropdown.append(searchInput);
   const search = document.createElement('button');
   search.id = 'search';
-  search.className = 'btn black';
+  search.className = 'btn1 black';
   search.textContent = 'Search';
   search.addEventListener('click', findPlayer);
   myDropdown.append(search);

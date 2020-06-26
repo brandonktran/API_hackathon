@@ -311,25 +311,3 @@ function flip() {
     }
 
 }
-
-
-
-
-// if (event.currentTarget.id === 'changePlayer2') {
-//     currentPlayer = 1;
-// } else if (event.currentTarget.id === 'changePlayer1') {
-//     currentPlayer = 0;
-// }
-// document.getElementById("myUL").className = "show";
-// console.log(currentPlayer);
-
-{/* <div class="dropdown">
-    <div id="myDropdown" class="dropdown-content">
-        <input type="text" id="searchInput" placeholder="Search for a team..">
-            <ul id="myUL" class="noshow">
-            </ul>
-            <label for="season" id="labelSeason">Season:</label>
-            <select name="season" id="season">
-            </select>
-            </div>
-    </div> */}
