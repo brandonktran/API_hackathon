@@ -145,7 +145,6 @@ function findPlayer() {
         button.textContent = data.data[i].first_name + ' ' + data.data[i].last_name;
         button.addEventListener('click', function (event) {
           if (currentPlayer === 0) {
-            // data.data.height_feet height_inches position team.full_name weight_pounds
             player1ID = event.currentTarget.id;
             weight1.textContent = playerProf.weight_pounds || 'No data found';
             if (playerProf.height_feet === null) {

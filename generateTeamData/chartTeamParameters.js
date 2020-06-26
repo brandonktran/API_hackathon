@@ -127,9 +127,6 @@ const bar2Data = {
                     fontColor: 'grey',
                     fontSize: 14,
                     beginAtZero: true,
-                    // max: 30,
-                    // min: 0,
-                    // stepSize: 5
                 }
             }]
         }
