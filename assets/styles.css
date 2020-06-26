@@ -98,7 +98,7 @@ h1 {
   font-weight: bold;
 }
 
-.btn{
+.btn1{
   top: 10px;
   right: 10px;
   text-transform: uppercase;
@@ -110,9 +110,9 @@ h1 {
   opacity: 1;
   transition: all 1s ease;
   cursor: pointer;
-}
+} */
 
-.btn.active{
+/* .btn1.active{
   opacity: 1;
 }
 
@@ -181,10 +181,11 @@ h1 {
 }
 
 #heading {
+  height:120px;
   width:100%;
   display: flex;
   border-bottom: 2px white solid;
-  background-color: rgb(0, 0, 0, 0.8);
+  background-color: rgb(0, 0, 0, 0.9);
   margin-bottom: 2%;
   position: fixed;
   z-index:1;
@@ -204,8 +205,7 @@ h1 {
 } */
 
 
-
-button, select, input, #myUL {
+select, input, #myUL {
   background-color: rgb(75, 75, 75);
   color: white;
   cursor: pointer;
@@ -250,7 +250,7 @@ img {
   background-color: rgb(75, 75, 75);
 }
 
- .btn {
+ .btn1 {
   height: 40px;
   border-radius: 3px;
   margin-left: 20px;
@@ -267,10 +267,10 @@ img {
   position: relative;
   opacity: 0.9;
 }
-.btn:hover, .btn:focus {
+.btn1:hover, .btn1:focus {
     opacity: 0.6;
 }
-.btn:active {
+.btn1:active {
     -webkit-transform: scale(0.90);
     -moz-transform: scale(0.90);
     -ms-transform: scale(0.90);
@@ -440,7 +440,11 @@ button {
 }
 
 .chart-container {
+  /* background-color: #ece8e1; */
   background-color: rgb(0, 0, 0, 0.9);
+  /* background-image: url(images/logo.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat; */
   border-radius: 2%;
   padding-right: 0.8%;
   padding-bottom: 0.5%;
@@ -460,6 +464,165 @@ button {
   background-position: center;
   padding-left:0;
   background-repeat: no-repeat;
+}
+
+.btn {
+  height:30px;
+  width:150px;
+  margin-top: 2%;
+  margin-bottom: 6%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-flow: column;
+}
+.btn a {
+  width: 100%;
+  /* max-width: 240px; */
+  height: 100px;
+  padding: 10px;
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #ff4655;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 0 0 1px inset rgba(236, 232, 225, 0.3);
+  margin: 10px 0;
+  color: black;
+}
+.btn a.white:hover > p {
+  color: #ece8e1;
+}
+.btn a.white > p {
+  background: #ece8e1;
+  color: #0f1923;
+}
+.btn a.white > p span.base {
+  border: 2px solid transparent;
+}
+.btn a.transparent:hover > p {
+  color: #ece8e1;
+}
+.btn a.transparent:hover > p span.text {
+  box-shadow: 0 0 0 1px #ece8e1;
+}
+.btn a.transparent > p {
+  background: #0f1923;
+  color: #ece8e1;
+}
+.btn a.transparent > p span.base {
+  border: 1px solid #ece8e1;
+}
+.btn a:after, .btn a:before {
+  content: "";
+  width: 1px;
+  /* position: absolute; */
+  height: 8px;
+  background: #0f1923;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.btn a:before {
+  right: 0;
+  left: initial;
+}
+.btn a p {
+  margin: 0;
+  /* height: 54px; */
+  line-height: 25px;
+  box-sizing: border-box;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.btn a p span.base {
+  box-sizing: border-box;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  border: 1px solid #ff4655;
+}
+.btn a p span.base:before {
+  content: "";
+  width: 2px;
+  height: 2px;
+  left: -1px;
+  top: -1px;
+  background: #0f1923;
+  /* position: absolute; */
+  -webkit-transition: 0.3s ease-out all;
+  transition: 0.3s ease-out all;
+}
+.btn a p span.bg {
+  left: -5%;
+  position: absolute;
+  background: #ff4655;
+  width: 0;
+  height: 100%;
+  z-index: 3;
+  -webkit-transition: 0.3s ease-out all;
+  transition: 0.3s ease-out all;
+  -webkit-transform: skewX(-10deg);
+          transform: skewX(-10deg);
+}
+.btn a p span.text {
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: black;
+}
+.btn a p span.text:after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  right: 0;
+  bottom: 0;
+  background: #0f1923;
+  position: absolute;
+  -webkit-transition: 0.3s ease-out all;
+  transition: 0.3s ease-out all;
+  z-index: 5;
+}
+.btn a:hover {
+  color: #ece8e1;
+}
+.btn a:hover span.bg {
+  width: 110%;
+}
+.btn a:hover span.text:after {
+  background: #ece8e1;
+}
+
+#head1, #head2 {
+  margin-top: 2.5%;
+  margin-left: 2%;
+  height: 40px
+}
+
+#head1 a, #head2 a {
+  padding:20px;
+}
+
+#head2 {
+  margin-left: 4%;
+}
+
+#head1 a p, #head2 a p {
+  line-height: 40px;
 }
 
 @media only screen and (max-width: 600px) {
