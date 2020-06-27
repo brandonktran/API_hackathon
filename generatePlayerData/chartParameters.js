@@ -46,6 +46,8 @@ const barData = {
     ]
   },
   options: {
+    responsive: true,
+    // maintainAspectRatio: true,
     animation: {
       duration: 1500,
       easing: 'easeInQuad'
@@ -294,3 +296,33 @@ const line1data = {
     }
   }
 }
+
+
+// function resize() {
+//   if ()
+// }
+
+
+//tempoerary testing
+// const canvasWidth;
+// let ctx;
+// var temp;
+// function init() {
+//   const canvas = document.getElementsByClassName('plot');
+//   temp = canvas[1]
+//   for (let i = 0; i < canvas.length; i++) {
+
+//     console.log(canvas[i].parentElement.style.width)
+//     if (canvas[i].getContext) {
+//       ctx = canvas[i].getContext("2d");
+//       window.addEventListener('resize', function () { resizeCanvas(canvas[i]) }, false);
+//       window.addEventListener('orientationchange', function () { resizeCanvas(canvas[i]) }, false);
+//       resizeCanvas(canvas[i]);
+//     }
+//   }
+// }
+
+// function resizeCanvas(canvas) {
+//   canvas.parentNode.width = '440px';
+// }
+// init();
