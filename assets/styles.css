@@ -416,17 +416,18 @@ button {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-  align-items: center;
+          align-items: center;
   -webkit-box-pack: center;
-  justify-content: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  flex-flow: column;
+          flex-flow: column;
 }
 
 .btn a {
-  width: 100%;
-  height: 100px;
+  width: 150px;
+  /* max-width: 240px; */
+  /* height: 100px; */
   padding: 10px;
   font-size: 0.8rem;
   font-weight: 900;
@@ -472,7 +473,7 @@ button {
 .btn a:after, .btn a:before {
   content: "";
   width: 1px;
-  /* position: absolute; */
+  position: absolute;
   height: 8px;
   background: #0f1923;
   left: 0;
@@ -488,6 +489,7 @@ button {
 
 .btn a p {
   margin: 0;
+  /* height: 54px; */
   line-height: 28px;
   box-sizing: border-box;
   z-index: 1;
@@ -513,7 +515,7 @@ button {
   left: -1px;
   top: -1px;
   background: #0f1923;
-  /* position: absolute; */
+  position: absolute;
   -webkit-transition: 0.3s ease-out all;
   transition: 0.3s ease-out all;
 }
@@ -586,7 +588,7 @@ button {
 
 select {
   background-color: black;
-  border: 1px white solid;
+  /* border: 1px white solid; */
   outline: none;
 }
 
