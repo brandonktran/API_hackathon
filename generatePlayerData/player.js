@@ -6,6 +6,7 @@ let line1Chart = new Chart(line1CTX, line1data);
 let player1ID = 115;
 let player2ID = 237;
 let currentPlayer = 0;
+let swap2;
 const statArray = {
   'GP': 'games_played', 'MIN': 'min', 'PTS': 'pts', 'FGM': 'fgm',
   'FGA': 'fga',
@@ -68,7 +69,8 @@ $.ajax({
     barChart = new Chart(barCTX, barData);
     bar2Chart = new Chart(bar2CTX, bar2Data);
     bar3Chart = new Chart(bar3CTX, bar3Data);
-    radarChart = new Chart(radarCTX, radarData);
+    // radarChart = new Chart(radarCTX, radarData);
+    radarChart.update();
   },
   error: function (error) {
     console.log(error);
@@ -461,43 +463,25 @@ function flip() {
 }
 
 
-// function swap() {
+function swap() {
+  radarChart = new Chart(radarCTX, radarData);
+  if (window.matchMedia("(max-width: 1615px)").matches) {
+    let top = document.querySelector('.topRow');
+    let after = document.querySelector('.after')
+    swap2 = document.querySelector('.swap2');
+    document.querySelector('.swap2').remove()
+    $(after).after(swap2);
+  } else if (window.matchMedia("(min-width: 1525px)").matches) {
+    let top = document.querySelector('.topRow');
+    let after = document.querySelector('.swap1')
+    swap2 = document.querySelector('.swap2');
+    document.querySelector('.swap2').remove()
+    $(after).after(swap2);
+  }
+}
 
-//   if (window.matchMedia("(max-width: 1515px)").matches) {
+window.addEventListener("orientationchange", swap);
 
-//     let div1 = jQuery('.swap1');
-//     let div2 = jQuery('.swap2');
+window.addEventListener("resize", swap);
 
-//     let tdiv1 = div1.clone();
-//     let tdiv2 = div2.clone();
-
-//     div1.replaceWith(tdiv2);
-//     div2.replaceWith(tdiv1);
-//     bar3Chart.destroy();
-//     bar3Chart = new Chart(bar3CTX, bar3Data);
-
-//   }
-
-// }
-
-// function swap() {
-//   if (window.matchMedia("(max-width: 1515px)").matches) {
-//     let top = document.querySelector('.topRow');
-//     let after = document.querySelector('.after')
-//     let swap2 = document.querySelector('.swap2').innerHTML;
-//     document.querySelector('.swap2').remove()
-//     $(after).after(swap2);
-//   } else {
-//     let top = document.querySelector('.topRow');
-//     let after = document.querySelector('.swap1')
-//     let swap2 = document.querySelector('.swap2').innerHTML;
-//     document.querySelector('.swap2').remove()
-//     $(after).after(swap2);
-//   }
-// }
-
-// window.addEventListener("orientationchange", swap);
-
-// window.addEventListener("resize", swap);
-
-// window.addEventListener("load", swap);
+window.addEventListener("load", swap);
