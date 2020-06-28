@@ -42,6 +42,7 @@ changeTwo.addEventListener('click', changePlayer);
 const lineStat = document.getElementById('stats');
 lineStat.addEventListener('change', updateLineChart);
 const body = document.querySelector('body');
+let topOne = document.querySelector('.topRow');
 
 
 $.ajax({
@@ -458,3 +459,45 @@ function flip() {
   }
 
 }
+
+
+// function swap() {
+
+//   if (window.matchMedia("(max-width: 1515px)").matches) {
+
+//     let div1 = jQuery('.swap1');
+//     let div2 = jQuery('.swap2');
+
+//     let tdiv1 = div1.clone();
+//     let tdiv2 = div2.clone();
+
+//     div1.replaceWith(tdiv2);
+//     div2.replaceWith(tdiv1);
+//     bar3Chart.destroy();
+//     bar3Chart = new Chart(bar3CTX, bar3Data);
+
+//   }
+
+// }
+
+// function swap() {
+//   if (window.matchMedia("(max-width: 1515px)").matches) {
+//     let top = document.querySelector('.topRow');
+//     let after = document.querySelector('.after')
+//     let swap2 = document.querySelector('.swap2').innerHTML;
+//     document.querySelector('.swap2').remove()
+//     $(after).after(swap2);
+//   } else {
+//     let top = document.querySelector('.topRow');
+//     let after = document.querySelector('.swap1')
+//     let swap2 = document.querySelector('.swap2').innerHTML;
+//     document.querySelector('.swap2').remove()
+//     $(after).after(swap2);
+//   }
+// }
+
+// window.addEventListener("orientationchange", swap);
+
+// window.addEventListener("resize", swap);
+
+// window.addEventListener("load", swap);
