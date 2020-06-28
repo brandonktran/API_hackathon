@@ -5,6 +5,7 @@ let radarChart;
 let player1ID = 115;
 let player2ID = 237;
 let currentPlayer = 0;
+let swap2;
 const statArray = {
     'MIN': 'min', 'PPG': 'ppg', 'OPPG': 'oppg',
     'FG%': 'fgp',
@@ -301,3 +302,28 @@ function flip() {
     }
 
 }
+
+
+
+function swap() {
+    radarChart = new Chart(radarCTX, radarData);
+    if (window.matchMedia("(max-width: 1525px)").matches) {
+        let top = document.querySelector('.topRow');
+        let after = document.querySelector('.after')
+        swap2 = document.querySelector('.swap2');
+        document.querySelector('.swap2').remove()
+        $(after).after(swap2);
+    } else if (window.matchMedia("(min-width: 1525px)").matches) {
+        let top = document.querySelector('.topRow');
+        let after = document.querySelector('.swap1')
+        swap2 = document.querySelector('.swap2');
+        document.querySelector('.swap2').remove()
+        $(after).after(swap2);
+    }
+}
+
+window.addEventListener("orientationchange", swap);
+
+window.addEventListener("resize", swap);
+
+window.addEventListener("load", swap);
