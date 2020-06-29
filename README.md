@@ -4,6 +4,6 @@ Because NBA basketball has been sorely missed during this COVID situation, and i
 The live site can be found at [https://brandonktran.github.io/Swishify-NBA_stat_visualization_comparison/](https://brandonktran.github.io/Swishify-NBA_stat_visualization_comparison/)
 
 
-<img src="assets/images/player.png" alt="HTML5 Icon" width="460"><img src="assets/images/team.png" alt="HTML5 Icon" width="460">
+<img src="assets/images/player.png" alt="HTML5 Icon" width="460">  <img src="assets/images/team.png" alt="HTML5 Icon" width="460">
 
 <img src="assets/images/swish.gif" alt="HTML5 Icon" width="940"> 
