@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="assets/images/icon.png">
+    <link rel="icon" href="../assets/images/icon.png">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
             </a>
         </button>
         <button class="btn margin-t" id="head2">
-            <a class="white" href="#">
+            <a class="white" href="team.html">
                 <p><span class="bg"></span><span class="base"></span><span class="text">Compare
                         Teams</span></p>
             </a>
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="col chart-container radar swap1" data-aos="flip-left" data-aos-duration="1000">
-                <div style="position:relative"><canvas id="radar"></canvas></div>
+                <div style="position:relative"><canvas id="radar" class="plot"></canvas></div>
             </div>
             <div class="col card2 wrapper swap2" data-aos="flip-left" data-aos-duration="1000">
                 <div class="card2 background1">
@@ -112,8 +112,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col" data-aos="zoom-in-up" data-aos-duration="1000">
-                <table>
+            <div class="col table-wrapper" data-aos="zoom-in-up" data-aos-duration="1000">
+                <h2>Season Averages</h2>
+                <table class="table2">
                     <thead>
                         <tr>
                             <th></th>

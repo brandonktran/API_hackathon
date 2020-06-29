@@ -57,6 +57,7 @@ changeOne.addEventListener('click', changePlayer);
 const changeTwo = document.getElementById('changePlayer2');
 changeTwo.addEventListener('click', changePlayer);
 const body = document.querySelector('body');
+let buttonText = document.querySelectorAll('.text');
 
 $.ajax({
     url: 'https://cors-anywhere.herokuapp.com/http://data.nba.net/10s/prod/v1/2019/team_stats_rankings.json',
@@ -306,14 +307,21 @@ function flip() {
 
 
 function swap() {
+    if (window.matchMedia("(max-width: 400px)").matches) {
+        buttonText[0].textContent = 'PLAYERS';
+        buttonText[1].textContent = 'TEAMS';
+    } else if (window.matchMedia("(min-width: 400px)").matches) {
+        buttonText[0].textContent = 'COMPARE PLAYERS';
+        buttonText[1].textContent = 'COMPARE TEAMS';
+    }
     radarChart = new Chart(radarCTX, radarData);
-    if (window.matchMedia("(max-width: 1525px)").matches) {
+    if (window.matchMedia("(max-width: 1475px)").matches) {
         let top = document.querySelector('.topRow');
         let after = document.querySelector('.after')
         swap2 = document.querySelector('.swap2');
         document.querySelector('.swap2').remove()
         $(after).after(swap2);
-    } else if (window.matchMedia("(min-width: 1525px)").matches) {
+    } else if (window.matchMedia("(min-width: 1475px)").matches) {
         let top = document.querySelector('.topRow');
         let after = document.querySelector('.swap1')
         swap2 = document.querySelector('.swap2');

@@ -26,7 +26,7 @@ body {
 h1 {
   font-family: 'Open Sans';
   font-size: 70px;
-  padding: 0px 0px 10px 40px;
+  padding: 3px 0px 0px 3vw;
   margin-right: 1.5vw;
 }
 
@@ -115,7 +115,7 @@ h1 {
 }
 
 .main {
-  width:90%;
+  width:95%;
   margin: auto;
 }
 
@@ -140,21 +140,24 @@ h1 {
 }
 
 #heading {
-  height:90px;
+  height:100px;
   width:100%;
   display: flex;
+  /* flex-wrap: wrap; */
+  align-content: center;
+  /* align-items: center; */
   border-bottom: 2px white solid;
   background: linear-gradient(rgb(23, 59, 87, 1) ,rgb(146, 141, 141, 0.1), rgb(87, 26, 41, 1)), linear-gradient(black, black);
   /* background-color: 	rgb(26, 79, 119); */
   margin-bottom: 2%;
   position: fixed;
   z-index:1;
-  top: 0;
+  /* top: 0; */
   width: 100%;
 }
 
 .topRow {
-  padding-top: 120px;
+  padding-top: 140px;
   padding-bottom: 70px;
   margin: auto;
 }
@@ -163,6 +166,11 @@ select, input, #myUL {
   background-color: rgb(75, 75, 75);
   color: white;
   cursor: pointer;
+}
+
+#myUL {
+  height: 200px;
+  overflow: auto;
 }
 
 a {
@@ -268,17 +276,18 @@ a {
 }
 
 table {
+  font-size: 18px;
   border-collapse: collapse;
   width: 100%;
   font-weight: bold;
   display: block;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 0 auto;
   overflow-x: auto;
+  white-space: nowrap;
 }
 
-/* tbody, thead {
-  overflow: scroll;
-  overflow: auto;
-} */
 
 caption {
   font-size: 30px;
@@ -294,7 +303,15 @@ th, td {
   border-bottom: 1px solid white;
 }
 
-tr:hover {background-color:rgb(75, 75, 75);}
+tr:hover {
+  background-color:rgb(75, 75, 75);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 
 .linegraph {
   margin-left: 100px;
@@ -327,6 +344,7 @@ tr:hover {background-color:rgb(75, 75, 75);}
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-transform-origin: 50% 50%;
+  /* width:200px; */
 }
 
 
@@ -368,6 +386,7 @@ tr:hover {background-color:rgb(75, 75, 75);}
   font-size: 20px;
   right: 21%;
   top: 5%;
+  display: inline-block;
 }
 
 
@@ -577,7 +596,8 @@ button {
 
 #head1, #head2 {
   margin-left: 2%;
-  height: 25px
+  height: 25px;
+  margin-top: 40px;
 }
 
 #head2 {
@@ -596,10 +616,11 @@ select {
 
 .wrapper {
   margin: auto;
+  /* width:20px; */
 }
 
 .background1 {
-  width: 480px;
+  width: 500px;
 }
 
 @media(max-width:1615px){
@@ -615,6 +636,28 @@ select {
    .col {
     flex-basis: 28%;
   }
+  table {
+  width: 100%;
+  }
+}
+
+@media(max-width:1690px){
+   .linegraph {
+        margin-bottom: 45px;
+   }
+
+}
+
+@media(max-width:1175px){
+   .chart-container {
+        margin-bottom: 45px;
+   }
+   .col {
+    flex-basis: 28%;
+  }
+  table {
+  width: 700px;
+  }
 }
 
 @media(max-width:1540px){
@@ -625,12 +668,57 @@ select {
 
 
 @media(max-width:775px){
+  table {
+    width: 500px;
+  }
   h1 {
-    font-size: 50px;
+    font-size: 60px;
+    margin-top: 8px;
+  }
+
+  #head1, #head2 {
+    width:150px;
+    margin-top:38px;
+  }
+  #head1 a, #head2 a {
+    width:150px;
+    padding:8px;
+  }
+}
+
+@media(max-width:670px){
+  h1 {
+    font-size: 55px;
+  }
+  #heading {
+    height:90px;
+  }
+  #head1, #head2 {
+    width:100px;
+    height:20px;
+    margin-top:38px;
+  }
+  #head1 a, #head2 a {
+    width:100px;
+    padding:8px;
+    font-size: 8.9px;
+  }
+}
+
+@media(max-width:570px){
+  table {
+    width: 350px;
   }
 }
 
 @media(max-width:400px){
+  #stats{
+    width:60px;
+    top: 8.5%;
+  }
+  #labelStats {
+      display:none;
+  }
   .background1 {
     width: 350px;
   }
@@ -638,5 +726,21 @@ select {
       width: 300px;
       padding: 15px;
       margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 45px;
+    margin-top: 10px;
+  }
+  #head1, #head2 {
+    width:55px;
+    height:20px;
+    margin-top:35px;
+    margin-right: 6px;
+  }
+  #head1 a, #head2 a {
+    width:55px;
+    padding:8px;
+    font-size: 8px;
+    word-wrap: normal;
   }
 }
