@@ -5,6 +5,6 @@ The live site can be found at [https://brandonktran.github.io/Swishify-NBA_stat_
 
 <img src="assets/images/swish.gif" alt="HTML5 Icon" width="100%"> 
 
-<img src="assets/images/player.png" alt="HTML5 Icon" width="49%">  <img src="assets/images/team.png" alt="HTML5 Icon" width="49%">
+<img src="assets/images/player.png" alt="HTML5 Icon" width="49%">    <img src="assets/images/team.png" alt="HTML5 Icon" width="49%">
 
 
