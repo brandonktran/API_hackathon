@@ -8,3 +8,17 @@ The live site can be found at [https://brandonktran.github.io/Swishify-NBA_stat_
 <img src="assets/images/player.png" alt="HTML5 Icon" width="49%">    <img src="assets/images/team.png" alt="HTML5 Icon" width="49%">
 
 
+## Technologies Used
+vanilla JavaScript<br/>
+HTML5<br/>
+CSS3 <br>
+chart.js <br/>
+jQuery<br/>
+Animate on Scroll (AOS) <br/>
+
+
+
+## Main Features
+User can search for players or teams <br/>
+User can view the stats of a player or team  <br/>
+User can compare players or teams <br/>
