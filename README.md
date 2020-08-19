@@ -20,8 +20,8 @@ Animate on Scroll (AOS) <br/>
 
 
 ## Main Features
-User can search for players or teams <br/>
-User can view the stats of a player or team (Big 5 categories- points, rebounds, assists, steals, and blocks per game) <br/>
-User can view player stats by last 10 games <br/>
-User can view a player or team's season averages <br/>
-User can compare players or teams <br/>
+1. User can search for players or teams <br/>
+2. User can view the stats of a player or team (Big 5 categories- points, rebounds, assists, steals, and blocks per game) <br/>
+3. User can view player stats by last 10 games <br/>
+4. User can view a player or team's season averages <br/>
+5. User can compare players or teams <br/>
