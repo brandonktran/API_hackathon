@@ -422,9 +422,6 @@ button {
   margin: auto;
 }
 
-.chart-container:hover {
-  background-color:rgb(255,255,255,0.9);
-}
 
 .radar {
   border: 2px solid grey;
