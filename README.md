@@ -10,8 +10,8 @@ The live site can be found at https://brandonktran.github.io/swishify/
 
 
 ## Technologies Used
-  <li>vanilla JavaScript<li>
-  <li>HTML5<li>
+  vanilla JavaScript<li>
+  HTML5<li>
   <li>CSS3<li>
   <li>chart.js<li>
   <li>jQuery<li>
