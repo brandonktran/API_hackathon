@@ -208,6 +208,7 @@ function changePlayer(event) {
     searchInput.placeholder = 'Search for a team..'
     searchInput.addEventListener('click', searchForPlayer);
     searchInput.addEventListener('keyup', filterFunction)
+    searchInput.style.cursor = 'text'
     myDropdown.append(searchInput);
     const myUL = document.createElement('ul');
     myUL.id = 'myUL'

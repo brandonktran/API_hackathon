@@ -385,6 +385,7 @@ function changePlayer(event) {
   searchInput.id = 'searchInput';
   searchInput.type = 'text';
   searchInput.placeholder = 'Find player..'
+  searchInput.style.cursor = 'text'
   myDropdown.append(searchInput);
   const search = document.createElement('button');
   search.id = 'search';
