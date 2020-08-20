@@ -47,7 +47,7 @@ const barData = {
   },
   options: {
     responsive: true,
-    // maintainAspectRatio: true,
+    maintainAspectRatio: false,
     animation: {
       duration: 1500,
       easing: 'easeInQuad'
@@ -109,6 +109,8 @@ const bar2Data = {
     ]
   },
   options: {
+    responsive: true,
+    maintainAspectRatio: false,
     animation: {
       duration: 1500,
       easing: 'easeInQuad'
@@ -165,6 +167,8 @@ const bar3Data = {
     ]
   },
   options: {
+    responsive: true,
+    maintainAspectRatio: false,
     animation: {
       duration: 1500,
       easing: 'easeInQuad'
