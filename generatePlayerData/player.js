@@ -358,6 +358,11 @@ function updateLineChart() {
   });
 }
 
+function disableToggle() {
+  const searchButton = document.getElementById('search')
+  searchButton.disabled = false;
+}
+
 
 function changePlayer(event) {
   if (event.currentTarget.id === 'changePlayer2') {
@@ -395,7 +400,7 @@ function changePlayer(event) {
   search.textContent = 'Search';
   // $("#search").append("<a class='white' href='#'>< p > <span class='bg'></span><span class='base'></span><span class=text'>Compare Players</span></p ></a >");
   search.addEventListener('click', findPlayer);
-
+  searchInput.addEventListener('keypress', disableToggle);
   myDropdown.append(search);
   const myUL = document.createElement('ul');
   myUL.id = 'myUL'
