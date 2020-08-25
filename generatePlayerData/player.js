@@ -129,6 +129,9 @@ $.ajax({
 
 
 function findPlayer() {
+  const searchButton = document.getElementById('search');
+  console.log(searchButton);
+  searchButton.disabled = true;
   const dropdown = document.getElementById('myUL');
   dropdown.innerHTML = '';
   $.ajax({
@@ -172,6 +175,7 @@ function findPlayer() {
           getPlayerStats(event.currentTarget, currentPlayer, playerProf.team.abbreviation);
           const id = event.currentTarget.id;
           updateLineChart()
+          searchButton.disabled = false;
         })
         dropdown.append(button);
         dropdown.className = "show";
@@ -288,7 +292,6 @@ function getPlayerGameStats(lastPage, id, playerNum, stat) {
           while (playerGameStats.length > 10) {
             playerGameStats.shift();
           }
-          console.log(playerGameStats);
           for (let i = 0; i < playerGameStats.length; i++) {
             line1data.data.datasets[playerNum].data[i] = playerGameStats[i][stat];
           }
@@ -374,7 +377,6 @@ function changePlayer(event) {
   }
   const searchMenu = document.getElementById(`searchMenu${currentPlayer + 1}`)
   searchMenu.innerHTML = '';
-  console.log(currentPlayer);
   const dropdown = document.createElement('div');
   dropdown.className = 'dropdown';
   const myDropdown = document.createElement('div');
